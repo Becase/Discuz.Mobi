@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Caliburn.Micro;
 
 namespace Discuz.WinPhone {
     public partial class MainPage : global::Xamarin.Forms.Platform.WinPhone.FormsApplicationPage {
@@ -15,7 +16,7 @@ namespace Discuz.WinPhone {
             SupportedOrientations = SupportedPageOrientation.PortraitOrLandscape;
 
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new Discuz.App());
+            LoadApplication(new Discuz.App(IoC.Get<PhoneContainer>()));
         }
     }
 }
