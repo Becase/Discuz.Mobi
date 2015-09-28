@@ -5,7 +5,6 @@
 
   <StackLayout>
     <Label Text="{Binding Data.Name}" />
-    <Label Text="{Binding Data.Description}" />
   </StackLayout>
 
 </ContentView>

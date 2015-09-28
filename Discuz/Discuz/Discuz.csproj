@@ -37,11 +37,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Controls\Border.cs" />
+    <Compile Include="Converters\HtmlClearConverter.cs" />
+    <Compile Include="HtmlClear.cs" />
+    <Compile Include="ListViewGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ForumCatalogViewModel.cs" />
+    <Compile Include="ViewModels\ForumDetailViewModel.cs" />
     <Compile Include="ViewModels\ForumIndexViewModel.cs" />
     <Compile Include="Views\ForumCatalogView.xaml.cs">
       <DependentUpon>ForumCatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ForumDetailView.xaml.cs">
+      <DependentUpon>ForumDetailView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ForumIndexView.xaml.cs">
       <DependentUpon>ForumIndexView.xaml</DependentUpon>
@@ -52,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.9.2.40598, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AngleSharp.0.9.2\lib\portable-windows8+net45+windowsphone8+wpa\AngleSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Caliburn.Micro, Version=2.0.2.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Caliburn.Micro.Core.3.0.0-beta1\lib\portable-net45+win8+wp8+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10+uap10.0\Caliburn.Micro.dll</HintPath>
       <Private>True</Private>
@@ -86,10 +98,22 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Views\ForumDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\Discuz.Api\Discuz.Api.csproj">
       <Project>{8bc10a4b-957b-461c-b1f8-4da7127b96ca}</Project>
       <Name>Discuz.Api</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

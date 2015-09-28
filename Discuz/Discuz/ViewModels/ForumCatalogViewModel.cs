@@ -14,8 +14,14 @@ namespace Discuz.ViewModels {
             private set;
         }
 
+        public BindableCollection<ForumDetailViewModel> SubForums {
+            get;
+            private set;
+        }
+
         public ForumCatalogViewModel(ForumCatalog data) {
             this.Data = data;
+            this.SubForums = new BindableCollection<ForumDetailViewModel>(data.SubFourms.Select(s => new ForumDetailViewModel(s)));
         }
     }
 }

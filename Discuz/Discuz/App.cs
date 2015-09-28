@@ -7,14 +7,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Discuz {
 
-    public class App : FormsApplication {
+    public partial class App : FormsApplication {
 
         private SimpleContainer Container = null;
 
         public App(SimpleContainer container) {
+            this.InitializeComponent();
 
             this.Container = container;
 
@@ -28,6 +30,10 @@ namespace Discuz {
         protected override void PrepareViewFirst(NavigationPage navigationPage) {
             this.Container.Instance<INavigationService>(new NavigationPageAdapter(navigationPage));
         }
+
+        //private void InitializeComponent() {
+        //    this.LoadFromXaml(typeof(App));
+        //}
 
         protected override void OnResume() {
             base.OnResume();
