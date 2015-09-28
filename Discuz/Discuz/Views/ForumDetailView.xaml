@@ -2,17 +2,38 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Discuz.Views.ForumDetailView"
+             xmlns:ctrls="clr-namespace:Discuz.Controls;assembly=Discuz"
               >
-  
+
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="auto" />
       <RowDefinition Height="auto" />
-      <RowDefinition Height="30" />
+      <RowDefinition Height="auto" />
     </Grid.RowDefinitions>
-  
-    <Label Text="{Binding Data.Name}" Style="{StaticResource ForumTitle}" />  
-    <Label Text="{Binding Data.Description, Converter={StaticResource HtmlClear}}" Style="{StaticResource ForumDescription}" Grid.Row="1" />
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition />
+      <ColumnDefinition />
+      <ColumnDefinition />
+    </Grid.ColumnDefinitions>
+
+
+    <Label Text="{Binding Data.Name}" Style="{StaticResource ForumTitle}" Grid.ColumnSpan="3" />
+    <Label Text="{Binding Data.Description, Converter={StaticResource HtmlClear}}" Style="{StaticResource ForumDescription}" Grid.Row="1" Grid.ColumnSpan="3" />
+
+    <ctrls:Border Grid.Row="2" Grid.Column="0" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="10" Padding="2">
+      <Label Text="{Binding Data.Threads,StringFormat='主题: {0}'}" Style="{StaticResource ForumDescription}" />
+    </ctrls:Border>
+
+    <ctrls:Border Grid.Row="2" Grid.Column="1" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="10" Padding="2">
+      <Label Text="{Binding Data.Posts,StringFormat='贴子: {0}'}" Style="{StaticResource ForumDescription}" />
+    </ctrls:Border>
+
+    <ctrls:Border Grid.Row="2" Grid.Column="2" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="10" Padding="2">
+      <Label Text="{Binding Data.TodayPosts,StringFormat='今日回贴: {0}'}" Style="{StaticResource ForumDescription}" />
+    </ctrls:Border>
+
   </Grid>
 
 </ContentView>

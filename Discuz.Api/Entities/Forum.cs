@@ -49,7 +49,7 @@ namespace Discuz.Api.Entities {
         /// 今日贴子数
         /// </summary>
         [JsonProperty("todayposts")]
-        public int TodyPosts {
+        public int TodayPosts {
             get;
             set;
         }
