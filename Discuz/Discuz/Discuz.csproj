@@ -45,7 +45,9 @@
     <Compile Include="ViewModels\ForumDetailViewModel.cs" />
     <Compile Include="ViewModels\ForumDisplayViewModel.cs" />
     <Compile Include="ViewModels\ForumIndexViewModel.cs" />
+    <Compile Include="ViewModels\PostDetailViewModel.cs" />
     <Compile Include="ViewModels\ThreadSummaryViewModel.cs" />
+    <Compile Include="ViewModels\ViewThreadViewModel.cs" />
     <Compile Include="Views\ForumDetailView.xaml.cs">
       <DependentUpon>ForumDetailView.xaml</DependentUpon>
     </Compile>
@@ -55,8 +57,14 @@
     <Compile Include="Views\ForumIndexView.xaml.cs">
       <DependentUpon>ForumIndexView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PostDetailView.xaml.cs">
+      <DependentUpon>PostDetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ThreadSummaryView.xaml.cs">
       <DependentUpon>ThreadSummaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewThreadView.xaml.cs">
+      <DependentUpon>ViewThreadView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +129,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ThreadSummaryView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ViewThreadView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\PostDetailView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

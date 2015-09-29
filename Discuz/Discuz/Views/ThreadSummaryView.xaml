@@ -5,6 +5,10 @@
              xmlns:ctrls="clr-namespace:Discuz.Controls;assembly=Discuz"
              >
 
+  <ContentView.GestureRecognizers>
+    <TapGestureRecognizer Command="{Binding TapCommand}" />
+  </ContentView.GestureRecognizers>
+
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="auto" />
@@ -33,8 +37,8 @@
       </StackLayout>
     </ctrls:Border>
 
-    <Image Source="arrow_left.png" HeightRequest="20" WidthRequest="20" Grid.Row="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />    
-    
+    <Image Source="arrow_left.png" HeightRequest="20" WidthRequest="20" Grid.Row="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />
+
   </Grid>
 
 </ContentView>

@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Discuz.ViewModels {
     public class ThreadSummaryViewModel : Screen {
@@ -15,12 +17,24 @@ namespace Discuz.ViewModels {
             private set;
         }
 
+        public ICommand TapCommand {
+            get;
+            set;
+        }
+
         private INavigationService NS = null;
 
         public ThreadSummaryViewModel(ThreadSummary data, INavigationService ns) {
             this.Data = data;
             this.NS = ns;
+            this.TapCommand = new Command(() => this.Show());
         }
 
+        private void Show() {
+            this.NS.For<ViewThreadViewModel>()
+                .WithParam(p => p.DisplayName, this.Data.Subject)
+                .WithParam(p => p.ThreadID, this.Data.ID)
+                .Navigate();
+        }
     }
 }
