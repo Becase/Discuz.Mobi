@@ -39,5 +39,11 @@ namespace Discuz.ViewModels {
             this.Datas = new ObservableCollection<ListViewGroup<ForumDetailViewModel>>(groups);
             this.NotifyOfPropertyChange(() => this.Datas);
         }
+
+        public void Show(object o) {
+            //this.NS.For<ForumDisplayViewModel>()
+            //    .WithParam(p => p.ID, this.Data.ID)
+            //    .Navigate();
+        }
     }
 }

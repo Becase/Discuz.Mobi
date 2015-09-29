@@ -6,6 +6,10 @@
              xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
               >
 
+  <ContentView.GestureRecognizers>
+    <TapGestureRecognizer Command="{Binding TapCommand}" />
+  </ContentView.GestureRecognizers>
+
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="auto" />
@@ -20,26 +24,24 @@
     </Grid.ColumnDefinitions>
 
 
-    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3" cal:Message.Attach="[Event focus] = 'Show'">
+    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3">
       <Label Text="{Binding Data.Name}" Style="{StaticResource ForumTitle}" />
-      <Button Text="ttt" cal:Message.Attach="Show" />
       <Image Source="arrow_left.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20" />
     </StackLayout>
 
     <Label Text="{Binding Data.Description, Converter={StaticResource HtmlClear}}" Style="{StaticResource ForumDescription}" Grid.Row="1" Grid.ColumnSpan="3" />
 
-    <ctrls:Border Grid.Row="2" Grid.Column="0" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="10" Padding="2">
+    <ctrls:Border Grid.Row="2" Grid.Column="0" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="12" Padding="10,1,10,4">
       <Label Text="{Binding Data.Threads,StringFormat='主题: {0}'}" Style="{StaticResource ForumDescription}" />
     </ctrls:Border>
 
-    <ctrls:Border Grid.Row="2" Grid.Column="1" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="10" Padding="2">
+    <ctrls:Border Grid.Row="2" Grid.Column="1" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="12" Padding="10,1,10,4">
       <Label Text="{Binding Data.Posts,StringFormat='贴子: {0}'}" Style="{StaticResource ForumDescription}" />
     </ctrls:Border>
 
-    <ctrls:Border Grid.Row="2" Grid.Column="2" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="10" Padding="2">
+    <ctrls:Border Grid.Row="2" Grid.Column="2" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="12" Padding="10,1,10,4">
       <Label Text="{Binding Data.TodayPosts,StringFormat='今日回贴: {0}'}" Style="{StaticResource ForumDescription}" />
     </ctrls:Border>
-
   </Grid>
 
 </ContentView>

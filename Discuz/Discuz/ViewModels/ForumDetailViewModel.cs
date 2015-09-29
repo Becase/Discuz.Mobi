@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Discuz.ViewModels {
     public class ForumDetailViewModel : Screen {
@@ -20,9 +22,15 @@ namespace Discuz.ViewModels {
             set;
         }
 
+        public ICommand TapCommand {
+            get;
+            set;
+        }
+
         public ForumDetailViewModel(Forum data, INavigationService ns) {
             this.Data = data;
             this.NS = ns;
+            this.TapCommand = new Command(() => this.Show());
         }
 
         public void Show() {

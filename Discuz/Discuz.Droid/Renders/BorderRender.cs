@@ -74,9 +74,11 @@ namespace Discuz.Droid.Renders {
                 // if stroke drawable exists, create a layer drawable containing both stroke and background drawables
                 var ld = new LayerDrawable(new Drawable[] { strokeDrawable, backgroundDrawable });
                 ld.SetLayerInset(1, (int)context.ToPixels(strokeThickness.Left), (int)context.ToPixels(strokeThickness.Top), (int)context.ToPixels(strokeThickness.Right), (int)context.ToPixels(strokeThickness.Bottom));
-                view.SetBackgroundDrawable(ld);
+                //view.SetBackgroundDrawable(ld);
+                view.Background = ld;
             } else {
-                view.SetBackgroundDrawable(backgroundDrawable);
+                //view.SetBackgroundDrawable(backgroundDrawable);
+                view.Background = backgroundDrawable;
             }
 
             // set Android.View's padding to take into account the stroke thickiness

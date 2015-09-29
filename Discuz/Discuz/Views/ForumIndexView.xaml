@@ -10,6 +10,7 @@
             SeparatorVisibility="None"
             IsGroupingEnabled="True"
             >
+    <!--cal:Message.Attach="[Event ItemTapped] = [Action Show($dataContext)]"-->
     <ListView.GroupHeaderTemplate>
       <DataTemplate>
         <ViewCell>
@@ -26,7 +27,7 @@
       <DataTemplate>
         <ViewCell>
           <ViewCell.View>
-            <StackLayout Padding="10,1">
+            <StackLayout Padding="5,1">
               <ctrls:Border CornerRadius="5" StrokeThickness="1" Stroke="#cccccc" Padding="10" BackgroundColor="Gray">
                 <ContentView cal:View.Model="{Binding }" />
               </ctrls:Border>
