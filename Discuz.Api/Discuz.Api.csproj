@@ -46,7 +46,9 @@
     <Compile Include="Attributes\SpecifyNameValueAttribute.cs" />
     <Compile Include="Entities\Forum.cs" />
     <Compile Include="Entities\ForumCatalog.cs" />
+    <Compile Include="Entities\ThreadSummary.cs" />
     <Compile Include="MethodBase.cs" />
+    <Compile Include="Methods\ForumDisplay.cs" />
     <Compile Include="Methods\ForumIndex.cs" />
     <Compile Include="ParamHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

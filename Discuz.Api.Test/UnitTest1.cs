@@ -12,5 +12,15 @@ namespace Discuz.Api.Test {
             var method = new ForumIndex();
             var result = client.Execute(method).Result;
         }
+
+        [TestMethod]
+        public void ForumDisplayTest() {
+            var client = ApiClient.GetInstance();
+            var method = new ForumDisplay() {
+                ID = 23,
+                PageSize = 10
+            };
+            var result = client.Execute(method).Result;
+        }
     }
 }

@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\drawable\arrow_left.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Discuz\Discuz.csproj">
