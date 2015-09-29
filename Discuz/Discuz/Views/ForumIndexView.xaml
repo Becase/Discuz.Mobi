@@ -27,7 +27,7 @@
         <ViewCell>
           <ViewCell.View>
             <StackLayout Padding="10,1">
-              <ctrls:Border CornerRadius="5" StrokeThickness="1" Stroke="Gray" Padding="10" BackgroundColor="Gray">
+              <ctrls:Border CornerRadius="5" StrokeThickness="1" Stroke="#cccccc" Padding="10" BackgroundColor="Gray">
                 <ContentView cal:View.Model="{Binding }" />
               </ctrls:Border>
             </StackLayout>

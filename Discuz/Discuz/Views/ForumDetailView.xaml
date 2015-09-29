@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Discuz.Views.ForumDetailView"
              xmlns:ctrls="clr-namespace:Discuz.Controls;assembly=Discuz"
+             xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
               >
 
   <Grid>
@@ -19,11 +20,12 @@
     </Grid.ColumnDefinitions>
 
 
-    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3">
+    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3" cal:Message.Attach="[Event focus] = 'Show'">
       <Label Text="{Binding Data.Name}" Style="{StaticResource ForumTitle}" />
+      <Button Text="ttt" cal:Message.Attach="Show" />
       <Image Source="arrow_left.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20" />
     </StackLayout>
-    
+
     <Label Text="{Binding Data.Description, Converter={StaticResource HtmlClear}}" Style="{StaticResource ForumDescription}" Grid.Row="1" Grid.ColumnSpan="3" />
 
     <ctrls:Border Grid.Row="2" Grid.Column="0" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="10" Padding="2">

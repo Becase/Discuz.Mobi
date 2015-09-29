@@ -109,5 +109,11 @@ namespace Discuz.Api.Entities {
             get;
             set;
         }
+
+        public string AuthorImg {
+            get {
+                return string.Format("http://center.blueidea.com/avatar.php?uid={0}&size=small", this.AuthorID);
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@
     <RootNamespace>Discuz</RootNamespace>
     <AssemblyName>Discuz</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <NuGetPackageImportStamp>4f5b4a7a</NuGetPackageImportStamp>
@@ -42,17 +42,21 @@
     <Compile Include="HtmlClear.cs" />
     <Compile Include="ListViewGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\ForumCatalogViewModel.cs" />
     <Compile Include="ViewModels\ForumDetailViewModel.cs" />
+    <Compile Include="ViewModels\ForumDisplayViewModel.cs" />
     <Compile Include="ViewModels\ForumIndexViewModel.cs" />
-    <Compile Include="Views\ForumCatalogView.xaml.cs">
-      <DependentUpon>ForumCatalogView.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModels\ThreadSummaryViewModel.cs" />
     <Compile Include="Views\ForumDetailView.xaml.cs">
       <DependentUpon>ForumDetailView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ForumDisplayView.xaml.cs">
+      <DependentUpon>ForumDisplayView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ForumIndexView.xaml.cs">
       <DependentUpon>ForumIndexView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThreadSummaryView.xaml.cs">
+      <DependentUpon>ThreadSummaryView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -92,12 +96,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ForumCatalogView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\ForumDetailView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -111,6 +109,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ForumDisplayView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ThreadSummaryView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

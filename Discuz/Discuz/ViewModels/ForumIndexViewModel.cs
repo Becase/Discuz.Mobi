@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using Caliburn.Micro.Xamarin.Forms;
 using Discuz.Api;
 using Discuz.Api.Entities;
 using Discuz.Api.Methods;
@@ -17,15 +18,21 @@ namespace Discuz.ViewModels {
             set;
         }
 
-        public ForumIndexViewModel() {
+        private INavigationService NS {
+            get;
+            set;
+        }
+
+        public ForumIndexViewModel(INavigationService ns) {
             this.LoadData();
+            this.NS = ns;
         }
 
         private async void LoadData() {
             var method = new ForumIndex();
             var catalogs = await ApiClient.GetInstance().Execute(method);
 
-            var groups = catalogs.Select(c => new ListViewGroup<ForumDetailViewModel>(c.SubFourms.Select(s => new ForumDetailViewModel(s))) {
+            var groups = catalogs.Select(c => new ListViewGroup<ForumDetailViewModel>(c.SubFourms.Select(s => new ForumDetailViewModel(s, this.NS))) {
                 Title = c.Name
             });
 

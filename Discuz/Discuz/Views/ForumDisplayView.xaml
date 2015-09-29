@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Discuz.Views.ForumDisplayView"
+             xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
+             xmlns:ctrls="clr-namespace:Discuz.Controls;assembly=Discuz"
+             >
+
+  <ListView ItemsSource="{Binding Datas}"
+            HasUnevenRows="True"
+            SeparatorVisibility="None"
+            >
+
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout Padding="5,1">
+            <ctrls:Border CornerRadius="5" StrokeThickness="1" Stroke="#cccccc" BackgroundColor="Gray" Padding="5">
+              <ContentView cal:View.Model="{Binding }" />
+            </ctrls:Border>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+
+  </ListView>
+
+</ContentPage>

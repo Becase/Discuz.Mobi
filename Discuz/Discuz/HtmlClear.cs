@@ -17,6 +17,7 @@ namespace Discuz {
             text = text.Trim();
             if (string.IsNullOrEmpty(text))
                 return string.Empty;
+            text = text.Replace("&nbsp;", " ");
             text = Regex.Replace(text, "[/s]{2,}", " ");    //two or more spaces
             text = Regex.Replace(text, "(<[b|B][r|R]/*>)+|(<[p|P](.|/n)*?>)", " ");    //<br>
             text = Regex.Replace(text, "(/s*&[n|N][b|B][s|S][p|P];/s*)+", " ");    //&nbsp;

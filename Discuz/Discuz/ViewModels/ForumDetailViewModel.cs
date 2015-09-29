@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using Caliburn.Micro.Xamarin.Forms;
 using Discuz.Api.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,20 @@ namespace Discuz.ViewModels {
             private set;
         }
 
-        public ForumDetailViewModel(Forum data) {
+        private INavigationService NS {
+            get;
+            set;
+        }
+
+        public ForumDetailViewModel(Forum data, INavigationService ns) {
             this.Data = data;
+            this.NS = ns;
+        }
+
+        public void Show() {
+            this.NS.For<ForumDisplayViewModel>()
+                .WithParam(p => p.ID, this.Data.ID)
+                .Navigate();
         }
     }
 }

@@ -10,10 +10,15 @@ using Discuz.WinPhone.Resources;
 
 namespace Discuz.WinPhone {
 
-    public partial class App {
+    public partial class App : Application {
 
         public App() {
             this.InitializeComponent();
+            this.UnhandledException += App_UnhandledException;
+        }
+
+        void App_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e) {
+            e.Handled = true;
         }
 
     }

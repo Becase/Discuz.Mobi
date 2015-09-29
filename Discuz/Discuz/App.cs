@@ -22,7 +22,7 @@ namespace Discuz {
 
             this.Container
                 .Singleton<ForumIndexViewModel>()
-                .PerRequest<ForumCatalogViewModel>();
+                .Singleton<ForumDisplayViewModel>();
 
             this.DisplayRootView<ForumIndexView>();
         }
