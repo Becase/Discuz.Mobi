@@ -36,6 +36,7 @@ namespace Discuz.ViewModels {
         public void Show() {
             this.NS.For<ForumDisplayViewModel>()
                 .WithParam(p => p.ID, this.Data.ID)
+                .WithParam(p => p.DisplayName, this.Data.Name)
                 .Navigate();
         }
     }

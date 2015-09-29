@@ -4,6 +4,7 @@
              x:Class="Discuz.Views.ForumDisplayView"
              xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              xmlns:ctrls="clr-namespace:Discuz.Controls;assembly=Discuz"
+             Title="{Binding DisplayName}"
              >
 
   <ListView ItemsSource="{Binding Datas}"

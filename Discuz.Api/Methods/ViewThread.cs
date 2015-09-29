@@ -8,18 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Discuz.Api.Methods {
-    public class ForumDisplay : MethodBase<IEnumerable<ThreadSummary>> {
+    public class ViewThread : MethodBase<IEnumerable<ThreadPost>> {
         public override string Module {
             get {
-                return "forumdisplay";
+                return "viewthread";
             }
         }
 
-        /// <summary>
-        /// fid
-        /// </summary>
-        [Param("fid", Required = true)]
-        public int ForumID {
+        [Param("tid", Required = true)]
+        public int ThreadID {
             get;
             set;
         }
@@ -36,7 +33,7 @@ namespace Discuz.Api.Methods {
         }
 
         private int pageSize = 20;
-        [Param("tpp")]
+        [Param("ppp")]
         public int PageSize {
             get {
                 return this.pageSize;
@@ -46,23 +43,19 @@ namespace Discuz.Api.Methods {
             }
         }
 
-
-        internal override async Task<IEnumerable<ThreadSummary>> Execute(ApiClient client) {
+        internal override async Task<IEnumerable<ThreadPost>> Execute(ApiClient client) {
             var result = await this.GetResult(client);
 
             var o = new {
                 Variables = new {
-                    forum_threadlist = Enumerable.Empty<ThreadSummary>(),
-                    tpp = 0,
-                    page = (int?)0
+                    postlist = Enumerable.Empty<ThreadPost>(),
+                    ppp = 0
                 }
             };
 
             o = JsonConvert.DeserializeAnonymousType(result, o);
-            this.Page = o.Variables.page ?? 1;
-            this.PageSize = o.Variables.tpp;
-
-            return o.Variables.forum_threadlist;
+            this.PageSize = o.Variables.ppp;
+            return o.Variables.postlist;
         }
     }
 }

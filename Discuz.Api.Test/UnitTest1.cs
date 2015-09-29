@@ -17,8 +17,17 @@ namespace Discuz.Api.Test {
         public void ForumDisplayTest() {
             var client = ApiClient.GetInstance();
             var method = new ForumDisplay() {
-                ID = 23,
+                ForumID = 23,
                 PageSize = 10
+            };
+            var result = client.Execute(method).Result;
+        }
+
+        [TestMethod]
+        public void ViewThreadTest() {
+            var client = ApiClient.GetInstance();
+            var method = new ViewThread() {
+                ThreadID = 2663379
             };
             var result = client.Execute(method).Result;
         }
