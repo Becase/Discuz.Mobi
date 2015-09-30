@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Discuz.ViewModels {
+    /// <summary>
+    /// 登陆
+    /// </summary>
     public class LoginViewModel : Screen {
     }
 }

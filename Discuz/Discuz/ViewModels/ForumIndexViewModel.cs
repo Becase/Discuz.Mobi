@@ -11,6 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Discuz.ViewModels {
+    /// <summary>
+    /// 论坛版块列表
+    /// </summary>
     public class ForumIndexViewModel : Screen {
 
         public ObservableCollection<ListViewGroup<ForumDetailViewModel>> Datas {

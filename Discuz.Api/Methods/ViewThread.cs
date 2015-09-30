@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Discuz.Api.Methods {
+    /// <summary>
+    /// 主题详细（POST LIST）
+    /// </summary>
     public class ViewThread : MethodBase<IEnumerable<ThreadPost>> {
         public override string Module {
             get {

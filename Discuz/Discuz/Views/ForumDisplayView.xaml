@@ -5,12 +5,16 @@
              xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              xmlns:ctrls="clr-namespace:Discuz.Controls;assembly=Discuz"
              Title="{Binding DisplayName}"
+             x:Name="root"
              >
 
-  <ListView ItemsSource="{Binding Datas}"
+  <ListView 
+            ItemsSource="{Binding Datas}"
             HasUnevenRows="True"
             SeparatorVisibility="None"
-            >
+            IsPullToRefreshEnabled="True"
+            RefreshCommand="{Binding RefreshCmd}"
+            IsRefreshing="{Binding InRefresh}">
 
     <ListView.ItemTemplate>
       <DataTemplate>
@@ -23,6 +27,14 @@
         </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>
+
+    <ListView.Footer>
+      <StackLayout Padding="10">
+        <Button Text="加载更多" Command="{Binding LoadMore}"
+                BindingContext="{Binding Source={x:Reference root}, Path=BindingContext}"
+                />
+      </StackLayout>
+    </ListView.Footer>
 
   </ListView>
 

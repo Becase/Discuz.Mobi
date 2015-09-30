@@ -34,10 +34,17 @@ namespace Discuz {
         }
 
         async void ApiClient_OnMessage(object sender, MessageArgs e) {
+            Device.BeginInvokeOnMainThread(() => {
+                this.DealMessage(e);
+            });
+        }
+
+        private async void DealMessage(MessageArgs e) {
             switch (e.ErrorType) {
                 case ErrorTypes.NoneForumPermission:
                 case ErrorTypes.NoneThreadPermission:
-                    if (await this.MainPage.DisplayAlert("提示", e.Message, "切换账户", "返回上一页")) {
+                    var nav = await this.MainPage.DisplayAlert("提示", e.Message, "切换账户", "返回上一页");
+                    if (nav) {
                         this.Container.GetInstance<INavigationService>()
                             .For<LoginViewModel>()
                             .Navigate();

@@ -10,6 +10,9 @@ using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Discuz.ViewModels {
+    /// <summary>
+    /// 版块详细信息，论坛版块列表的子视图
+    /// </summary>
     public class ForumDetailViewModel : Screen {
 
         public Forum Data {

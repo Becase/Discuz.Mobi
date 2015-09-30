@@ -10,6 +10,9 @@ using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Discuz.ViewModels {
+    /// <summary>
+    /// 主题信息，主题列表的子视图
+    /// </summary>
     public class ThreadSummaryViewModel : Screen {
 
         public ThreadSummary Data {

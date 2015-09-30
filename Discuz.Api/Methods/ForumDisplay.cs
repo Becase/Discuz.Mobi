@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Discuz.Api.Methods {
+    /// <summary>
+    /// 版块主题列表
+    /// </summary>
     public class ForumDisplay : MethodBase<IEnumerable<ThreadSummary>> {
         public override string Module {
             get {
