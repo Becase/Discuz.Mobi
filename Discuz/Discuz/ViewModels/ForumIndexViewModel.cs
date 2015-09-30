@@ -30,7 +30,7 @@ namespace Discuz.ViewModels {
 
         private async void LoadData() {
             var method = new ForumIndex();
-            var catalogs = await ApiClient.GetInstance().Execute(method);
+            var catalogs = await ApiClient.Execute(method);
 
             var groups = catalogs.Select(c => new ListViewGroup<ForumDetailViewModel>(c.SubFourms.Select(s => new ForumDetailViewModel(s, this.NS))) {
                 Title = c.Name

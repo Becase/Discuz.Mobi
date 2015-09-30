@@ -34,7 +34,7 @@ namespace Discuz.ViewModels {
             var method = new ViewThread() {
                 ThreadID = this.ThreadID
             };
-            var datas = await ApiClient.GetInstance().Execute(method);
+            var datas = await ApiClient.Execute(method);
             var vms = datas.Select(d => new PostDetailViewModel(d));
             this.Datas = new BindableCollection<PostDetailViewModel>(vms);
             this.NotifyOfPropertyChange(() => this.Datas);

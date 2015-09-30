@@ -41,7 +41,7 @@ namespace Discuz.ViewModels {
             var method = new ForumDisplay() {
                 ForumID = this.ID
             };
-            var datas = await ApiClient.GetInstance().Execute(method);
+            var datas = await ApiClient.Execute(method);
             var vms = datas.Select(t => new ThreadSummaryViewModel(t, this.NS));
             this.Datas = new BindableCollection<ThreadSummaryViewModel>(vms);
 

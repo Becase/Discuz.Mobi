@@ -1,5 +1,7 @@
 ﻿using Caliburn.Micro;
 using Caliburn.Micro.Xamarin.Forms;
+using Discuz.Api;
+using Discuz.Api.Entities;
 using Discuz.ViewModels;
 using Discuz.Views;
 using System;
@@ -23,18 +25,35 @@ namespace Discuz {
             this.Container
                 .Singleton<ForumIndexViewModel>()
                 .Singleton<ForumDisplayViewModel>()
-                .Singleton<ViewThreadViewModel>();
+                .Singleton<ViewThreadViewModel>()
+                .PerRequest<LoginViewModel>();
 
             this.DisplayRootView<ForumIndexView>();
+
+            ApiClient.OnMessage += ApiClient_OnMessage;
+        }
+
+        async void ApiClient_OnMessage(object sender, MessageArgs e) {
+            switch (e.ErrorType) {
+                case ErrorTypes.NoneForumPermission:
+                case ErrorTypes.NoneThreadPermission:
+                    if (await this.MainPage.DisplayAlert("提示", e.Message, "切换账户", "返回上一页")) {
+                        this.Container.GetInstance<INavigationService>()
+                            .For<LoginViewModel>()
+                            .Navigate();
+                    } else {
+                        await this.Container.GetInstance<INavigationService>().GoBackAsync();
+                    }
+                    break;
+                default:
+                    await this.MainPage.DisplayAlert("提示", e.Message, "OK");
+                    break;
+            }
         }
 
         protected override void PrepareViewFirst(NavigationPage navigationPage) {
             this.Container.Instance<INavigationService>(new NavigationPageAdapter(navigationPage));
         }
-
-        //private void InitializeComponent() {
-        //    this.LoadFromXaml(typeof(App));
-        //}
 
         protected override void OnResume() {
             base.OnResume();
