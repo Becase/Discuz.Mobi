@@ -17,9 +17,7 @@ namespace Discuz.Api.Methods {
             }
         }
 
-        internal override async Task<IEnumerable<ForumCatalog>> Execute(ApiClient client) {
-            var result = await base.GetResult(client);
-
+        protected override IEnumerable<ForumCatalog> Execute(string result) {
             var o = new {
                 Variables = new {
                     catlist = Enumerable.Empty<ForumCatalog>(),
@@ -29,11 +27,15 @@ namespace Discuz.Api.Methods {
 
             o = JsonConvert.DeserializeAnonymousType(result, o);
 
-            foreach (var c in o.Variables.catlist) {
-                c.SubFourms = o.Variables.forumlist.Where(f => c.SubFourmIDs.Contains(f.ID));
-            }
+            if (o.Variables != null) {
+                foreach (var c in o.Variables.catlist) {
+                    c.SubFourms = o.Variables.forumlist.Where(f => c.SubFourmIDs.Contains(f.ID));
+                }
 
-            return o.Variables.catlist;
+                return o.Variables.catlist;
+            } else {
+                return Enumerable.Empty<ForumCatalog>();
+            }
         }
     }
 }

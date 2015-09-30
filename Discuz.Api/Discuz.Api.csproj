@@ -40,12 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiClient.cs" />
-    <Compile Include="Attributes\Class1.cs" />
     <Compile Include="Attributes\EnumParam.cs" />
+    <Compile Include="Attributes\ErrorTagAttribute.cs" />
     <Compile Include="Attributes\ParamAttribute.cs" />
     <Compile Include="Attributes\SpecifyNameValueAttribute.cs" />
     <Compile Include="Converters\BoolConverter.cs" />
     <Compile Include="Entities\Attachement.cs" />
+    <Compile Include="Entities\ErrorTypes.cs" />
     <Compile Include="Entities\Forum.cs" />
     <Compile Include="Entities\ForumCatalog.cs" />
     <Compile Include="Entities\ThreadPost.cs" />

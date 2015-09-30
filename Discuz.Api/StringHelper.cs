@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Discuz.Api.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Reflection;
+using Discuz.Api.Attributes;
 
 namespace Discuz.Api {
     public static class StringHelper {
@@ -107,6 +110,18 @@ namespace Discuz.Api {
             }
             tmp = Regex.Replace(tmp, @"(?<!(http|https):)[\\/]+", "/").Trim();
             return tmp;
+        }
+
+        public static ErrorTypes ParseErrorType(this string str) {
+            var fs = typeof(ErrorTypes).GetRuntimeFields();
+            foreach (var f in fs) {
+                var attr = f.GetCustomAttribute<ErrorTagAttribute>();
+                if (attr != null && str.IndexOf(attr.Tag, StringComparison.OrdinalIgnoreCase) == 0) {
+                    return (ErrorTypes)Enum.Parse(typeof(ErrorTypes), f.Name);
+                }
+            }
+
+            return ErrorTypes.Unknow;
         }
 
     }

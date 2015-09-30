@@ -43,9 +43,7 @@ namespace Discuz.Api.Methods {
             }
         }
 
-        internal override async Task<IEnumerable<ThreadPost>> Execute(ApiClient client) {
-            var result = await this.GetResult(client);
-
+        protected override IEnumerable<ThreadPost> Execute(string result) {
             var o = new {
                 Variables = new {
                     postlist = Enumerable.Empty<ThreadPost>(),
@@ -54,8 +52,11 @@ namespace Discuz.Api.Methods {
             };
 
             o = JsonConvert.DeserializeAnonymousType(result, o);
-            this.PageSize = o.Variables.ppp;
-            return o.Variables.postlist;
+            if (o.Variables != null) {
+                this.PageSize = o.Variables.ppp;
+                return o.Variables.postlist;
+            } else
+                return Enumerable.Empty<ThreadPost>();
         }
     }
 }
