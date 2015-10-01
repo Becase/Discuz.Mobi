@@ -42,6 +42,7 @@
     <Compile Include="HtmlClear.cs" />
     <Compile Include="ListViewGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyHelper.cs" />
     <Compile Include="ViewLocatorPage.cs" />
     <Compile Include="ViewModels\ForumDetailViewModel.cs" />
     <Compile Include="ViewModels\ForumDisplayViewModel.cs" />
@@ -91,6 +92,10 @@
     </Reference>
     <Reference Include="Caliburn.Micro.Platform.Xamarin.Forms, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Caliburn.Micro.Xamarin.Forms.3.0.0-beta1\lib\portable-net45+win8+wp8+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10\Caliburn.Micro.Platform.Xamarin.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
