@@ -37,7 +37,11 @@ namespace Discuz {
 
             var page = (ViewLocatorPage)bindable;
             if (null != (ContentPage)vmView) {
-                page.Content = ((ContentPage)vmView).Content;
+                var vp = (ContentPage)vmView;
+                page.Content = vp.Content;
+                if (vp.ToolbarItems != null)
+                    foreach (var t in vp.ToolbarItems)
+                        page.ToolbarItems.Add(t);
             } else if (null != (Xamarin.Forms.View)vmView) {
                 page.Content = (Xamarin.Forms.View)vmView;
             }

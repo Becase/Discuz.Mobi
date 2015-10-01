@@ -8,7 +8,14 @@
              x:Name="root"
              >
 
-  <ListView ItemsSource="{Binding Datas}"
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="刷新" Icon="refresh.png" Command="{Binding RefreshCmd}" Priority="0" />
+    <ToolbarItem Text="顶部" Icon="top.png" Command="{Binding GotoTopCmd}" CommandParameter="{Binding Source={x:Reference lst}}" Order="Secondary" Priority="0" />
+    <ToolbarItem Text="底部" Icon="bottom.png" Command="{Binding GotoBottomCmd}" CommandParameter="{Binding Source={x:Reference lst}}" Order="Secondary" Priority="0" />
+  </ContentPage.ToolbarItems>
+
+  <ListView x:Name="lst"
+            ItemsSource="{Binding Datas}"
             HasUnevenRows="True"
             SeparatorVisibility="None"
             IsPullToRefreshEnabled="True"
@@ -30,8 +37,8 @@
 
     <ListView.Footer>
       <StackLayout Padding="10">
-        <Button Text="加载更多" Command="{Binding LoadMore}" 
-                BindingContext="{Binding Source={x:Reference root}, Path=BindingContext}" 
+        <Button Text="加载更多" Command="{Binding LoadMoreCmd}"
+                BindingContext="{Binding Source={x:Reference root}, Path=BindingContext}"
                 />
       </StackLayout>
     </ListView.Footer>

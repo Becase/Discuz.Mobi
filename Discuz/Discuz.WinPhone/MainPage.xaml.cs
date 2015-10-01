@@ -17,6 +17,10 @@ namespace Discuz.WinPhone {
 
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new Discuz.App(IoC.Get<PhoneContainer>()));
+
+            //菜单栏最小化
+            this.ApplicationBar.Opacity = 0.75;
+            this.ApplicationBar.Mode = ApplicationBarMode.Minimized;
         }
     }
 }

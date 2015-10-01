@@ -19,7 +19,6 @@ namespace Discuz.Droid {
 
         public Application(IntPtr javaReference, JniHandleOwnership transfer)
             : base(javaReference, transfer) {
-
         }
 
         public override void OnCreate() {

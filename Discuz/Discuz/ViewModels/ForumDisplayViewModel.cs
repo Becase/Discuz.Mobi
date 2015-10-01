@@ -3,6 +3,7 @@ using Caliburn.Micro.Xamarin.Forms;
 using Discuz.Api;
 using Discuz.Api.Entities;
 using Discuz.Api.Methods;
+using Discuz.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,11 +46,20 @@ namespace Discuz.ViewModels {
             set;
         }
 
-
         /// <summary>
         /// 加载下一页
         /// </summary>
-        public ICommand LoadMore {
+        public ICommand LoadMoreCmd {
+            get;
+            set;
+        }
+
+        public ICommand GotoTopCmd {
+            get;
+            set;
+        }
+
+        public ICommand GotoBottomCmd {
             get;
             set;
         }
@@ -66,7 +76,18 @@ namespace Discuz.ViewModels {
 
             this.Datas = new BindableCollection<ThreadSummaryViewModel>();
             this.RefreshCmd = new Command(() => this.LoadData(true));
-            this.LoadMore = new Command(() => this.LoadData(false));
+            this.LoadMoreCmd = new Command(() => this.LoadData(false));
+            this.GotoTopCmd = new Command((l) => this.Scroll((ListView)l, true));
+            this.GotoBottomCmd = new Command(l => this.Scroll((ListView)l, false));
+        }
+
+        private void Scroll(ListView lst, bool topOrBottom) {
+            if (lst == null || this.Datas == null || this.Datas.Count == 0)
+                return;
+            if (topOrBottom)
+                lst.ScrollTo(this.Datas.FirstOrDefault(), ScrollToPosition.Start, true);
+            else
+                lst.ScrollTo(this.Datas.LastOrDefault(), ScrollToPosition.End, true);
         }
 
         protected override void OnActivate() {
@@ -77,6 +98,9 @@ namespace Discuz.ViewModels {
         }
 
         private async void LoadData(bool isRefresh) {
+            var hud = DependencyService.Get<IToast>();
+            hud.Show("正在加载数据, 现在展示的不是最新数据");
+
             if (isRefresh)
                 this.Page = 1;
             else
@@ -97,11 +121,19 @@ namespace Discuz.ViewModels {
             else {
                 this.Datas.AddRange(vms);
             }
+
+            //保持总量就 100条
+            if (this.Datas.Count > 100) {
+                this.Datas.RemoveRange(this.Datas.Take(this.Datas.Count - 100));
+            }
+
             this.NotifyOfPropertyChange(() => this.Datas);
             this.OldID = this.ID;
 
             this.InRefresh = false;
             this.NotifyOfPropertyChange(() => this.InRefresh);
+
+            hud.Close();
         }
     }
 }

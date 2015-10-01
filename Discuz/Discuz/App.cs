@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -34,6 +35,12 @@ namespace Discuz {
             this.DisplayRootView<TabView>();
 
             ApiClient.OnMessage += ApiClient_OnMessage;
+            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+        }
+
+        private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e) {
+            //防止因线程取消等错误把程挂掉
+            e.SetObserved();
         }
 
         void ApiClient_OnMessage(object sender, MessageArgs e) {

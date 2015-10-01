@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using Discuz.Api;
 using Discuz.Api.Methods;
+using Discuz.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +49,17 @@ namespace Discuz.ViewModels {
         /// <summary>
         /// 加载下一页
         /// </summary>
-        public ICommand LoadMore {
+        public ICommand LoadMoreCmd {
+            get;
+            set;
+        }
+
+        public ICommand GotoTopCmd {
+            get;
+            set;
+        }
+
+        public ICommand GotoBottomCmd {
             get;
             set;
         }
@@ -62,7 +73,9 @@ namespace Discuz.ViewModels {
             base.OnActivate();
 
             this.RefreshCmd = new Command(() => this.LoadData(true));
-            this.LoadMore = new Command(() => this.LoadData(false));
+            this.LoadMoreCmd = new Command(() => this.LoadData(false));
+            this.GotoTopCmd = new Command((l) => this.Scroll((ListView)l, true));
+            this.GotoBottomCmd = new Command(l => this.Scroll((ListView)l, false));
 
             this.Datas = new BindableCollection<PostDetailViewModel>();
 
@@ -70,7 +83,19 @@ namespace Discuz.ViewModels {
                 this.LoadData(true);
         }
 
+        private void Scroll(ListView lst, bool topOrBottom) {
+            if (lst == null || this.Datas == null || this.Datas.Count == 0)
+                return;
+            if (topOrBottom)
+                lst.ScrollTo(this.Datas.FirstOrDefault(), ScrollToPosition.Start, true);
+            else
+                lst.ScrollTo(this.Datas.LastOrDefault(), ScrollToPosition.End, true);
+        }
+
         private async void LoadData(bool isRefresh) {
+            var hud = DependencyService.Get<IToast>();
+            hud.Show("正在加载, 现在展示的不是最新数据");
+
             if (isRefresh)
                 this.Page = 1;
             else
@@ -97,6 +122,7 @@ namespace Discuz.ViewModels {
 
             this.InRefresh = false;
             this.NotifyOfPropertyChange(() => this.InRefresh);
+            hud.Close();
         }
     }
 }

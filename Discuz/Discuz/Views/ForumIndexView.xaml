@@ -5,12 +5,20 @@
              xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              xmlns:ctrls="clr-namespace:Discuz.Controls;assembly=Discuz"
              >
-  <ListView ItemsSource="{Binding Datas}"
+
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="刷新" Icon="refresh.png" Command="{Binding RefreshCmd}" Priority="0" />
+    <ToolbarItem Text="顶部" Icon="top.png" Command="{Binding GotoTopCmd}" CommandParameter="{Binding Source={x:Reference lst}}" Priority="0" />
+    <ToolbarItem Text="底部" Icon="bottom.png" Command="{Binding GotoBottomCmd}" CommandParameter="{Binding Source={x:Reference lst}}" Priority="0" />
+  </ContentPage.ToolbarItems>
+
+  <ListView x:Name="lst"
+            ItemsSource="{Binding Datas}"
             HasUnevenRows="True"
             SeparatorVisibility="None"
             IsGroupingEnabled="True"
-            >
-    <!--cal:Message.Attach="[Event ItemTapped] = [Action Show($dataContext)]"-->
+            >   
+    
     <ListView.GroupHeaderTemplate>
       <DataTemplate>
         <ViewCell>
