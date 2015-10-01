@@ -1,0 +1,16 @@
+﻿using Caliburn.Micro;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Discuz.ViewModels {
+    public class SettingViewModel : Screen {
+
+        public SettingViewModel() {
+            this.DisplayName = "设置";
+        }
+
+    }
+}

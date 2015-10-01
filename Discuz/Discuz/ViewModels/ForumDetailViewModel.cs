@@ -15,6 +15,8 @@ namespace Discuz.ViewModels {
     /// </summary>
     public class ForumDetailViewModel : Screen {
 
+        internal static readonly string AddFavoriteMessage = "AddFavorite";
+
         public Forum Data {
             get;
             private set;
@@ -30,10 +32,16 @@ namespace Discuz.ViewModels {
             set;
         }
 
+        public ICommand AddFavCommand {
+            get;
+            set;
+        }
+
         public ForumDetailViewModel(Forum data, INavigationService ns) {
             this.Data = data;
             this.NS = ns;
             this.TapCommand = new Command(() => this.Show());
+            this.AddFavCommand = new Command(() => this.AddToFavorite());
         }
 
         public void Show() {
@@ -41,6 +49,13 @@ namespace Discuz.ViewModels {
                 .WithParam(p => p.ID, this.Data.ID)
                 .WithParam(p => p.DisplayName, this.Data.Name)
                 .Navigate();
+        }
+
+        public async void AddToFavorite() {
+            var r = await App.Current.MainPage.DisplayAlert("提示", "确认添收藏吗?", "确认", "取消");
+            if (r) {
+                MessagingCenter.Send(this, AddFavoriteMessage, new Tuple<int, string>(this.Data.ID, this.Data.Name));
+            }
         }
     }
 }

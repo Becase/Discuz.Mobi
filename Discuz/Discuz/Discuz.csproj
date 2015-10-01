@@ -42,11 +42,14 @@
     <Compile Include="HtmlClear.cs" />
     <Compile Include="ListViewGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewLocatorPage.cs" />
     <Compile Include="ViewModels\ForumDetailViewModel.cs" />
     <Compile Include="ViewModels\ForumDisplayViewModel.cs" />
     <Compile Include="ViewModels\ForumIndexViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\PostDetailViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel.cs" />
+    <Compile Include="ViewModels\TabViewModel.cs" />
     <Compile Include="ViewModels\ThreadSummaryViewModel.cs" />
     <Compile Include="ViewModels\ViewThreadViewModel.cs" />
     <Compile Include="Views\ForumDetailView.xaml.cs">
@@ -63,6 +66,12 @@
     </Compile>
     <Compile Include="Views\PostDetailView.xaml.cs">
       <DependentUpon>PostDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingView.xaml.cs">
+      <DependentUpon>SettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TabView.xaml.cs">
+      <DependentUpon>TabView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ThreadSummaryView.xaml.cs">
       <DependentUpon>ThreadSummaryView.xaml</DependentUpon>
@@ -147,6 +156,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\LoginView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TabView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SettingView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

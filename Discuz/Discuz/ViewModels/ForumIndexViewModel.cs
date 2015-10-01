@@ -29,6 +29,7 @@ namespace Discuz.ViewModels {
         public ForumIndexViewModel(INavigationService ns) {
             this.LoadData();
             this.NS = ns;
+            this.DisplayName = "经典论坛";
         }
 
         private async void LoadData() {

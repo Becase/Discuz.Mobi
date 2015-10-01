@@ -11,10 +11,11 @@
       
       <Style x:Key="ForumTitle" TargetType="Label">
         <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextColor" Value="#eeeeee" />
       </Style>
       <Style x:Key="ForumDescription" TargetType="Label">
         <Setter Property="FontSize" Value="15" />
-        <Setter Property="TextColor" Value="#eeeeee" />
+        <Setter Property="TextColor" Value="#dddddd" />
       </Style>
       
       

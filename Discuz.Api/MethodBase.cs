@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,15 @@ namespace Discuz.Api {
                 return await hc.GetStringAsync(url);
             } catch (HttpRequestException ex) {
                 var bex = ex.GetBaseException();
+                var o = new {
+                    Message = new {
+                        messageval = bex.HResult.ToString(),
+                        messagestr = bex.Message
+                    }
+                };
+                return JsonConvert.SerializeObject(o);
+            } catch (WebException ex1) {
+                var bex = ex1.GetBaseException();
                 var o = new {
                     Message = new {
                         messageval = bex.HResult.ToString(),

@@ -23,10 +23,17 @@
       <ColumnDefinition />
     </Grid.ColumnDefinitions>
 
+    <StackLayout Orientation="Horizontal" Grid.Column="2" HorizontalOptions="End">
+      <Image Source="favorite.png" WidthRequest="30" HeightRequest="30" HorizontalOptions="Center">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Command="{Binding AddFavCommand}" />
+        </Image.GestureRecognizers>
+      </Image>
+      <Image Source="arrow_left.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20" />
+    </StackLayout>
 
     <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3">
       <Label Text="{Binding Data.Name}" Style="{StaticResource ForumTitle}" />
-      <Image Source="arrow_left.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20" />
     </StackLayout>
 
     <Label Text="{Binding Data.Description, Converter={StaticResource HtmlClear}}" Style="{StaticResource ForumDescription}" Grid.Row="1" Grid.ColumnSpan="3" />

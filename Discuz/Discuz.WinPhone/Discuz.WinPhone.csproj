@@ -130,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="arrow_left.png" />
+    <Content Include="favorite.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="SplashScreenImage.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

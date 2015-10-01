@@ -23,17 +23,20 @@ namespace Discuz {
             this.Container = container;
 
             this.Container
+                .Singleton<TabViewModel>()
                 .Singleton<ForumIndexViewModel>()
                 .Singleton<ForumDisplayViewModel>()
+                .PerRequest<ForumDisplayViewModel>("ForFavorite")
                 .Singleton<ViewThreadViewModel>()
+                .Singleton<SettingViewModel>()
                 .PerRequest<LoginViewModel>();
 
-            this.DisplayRootView<ForumIndexView>();
+            this.DisplayRootView<TabView>();
 
             ApiClient.OnMessage += ApiClient_OnMessage;
         }
 
-        async void ApiClient_OnMessage(object sender, MessageArgs e) {
+        void ApiClient_OnMessage(object sender, MessageArgs e) {
             Device.BeginInvokeOnMainThread(() => {
                 this.DealMessage(e);
             });
@@ -61,6 +64,8 @@ namespace Discuz {
         protected override void PrepareViewFirst(NavigationPage navigationPage) {
             this.Container.Instance<INavigationService>(new NavigationPageAdapter(navigationPage));
         }
+
+
 
         protected override void OnResume() {
             base.OnResume();

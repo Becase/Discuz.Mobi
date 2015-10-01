@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Discuz.Views.TabView"
+            xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
+            xmlns:local="clr-namespace:Discuz;assembly=Discuz"
+            ItemsSource="{Binding Datas}"
+            >
+
+  <TabbedPage.ItemTemplate>
+    <DataTemplate>
+      <local:ViewLocatorPage Title="{Binding DisplayName}" VM="{Binding}" />
+    </DataTemplate>
+  </TabbedPage.ItemTemplate>
+
+</TabbedPage>
