@@ -9,7 +9,7 @@ using Android.OS;
 using Caliburn.Micro;
 
 namespace Discuz.Droid {
-    [Activity(Label = "Discuz", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Discuz", Theme = "@style/Theme.Mytheme", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity {
         protected override void OnCreate(Bundle bundle) {
             //base.OnCreate(bundle);

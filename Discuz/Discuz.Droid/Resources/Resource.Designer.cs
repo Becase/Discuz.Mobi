@@ -116,35 +116,150 @@ namespace Discuz.Droid
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int white = 2131034112;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int arrow_left = 2130837504;
+			public const int ab_background_textured_mytheme = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int favorite = 2130837505;
+			public const int ab_bottom_solid_mytheme = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int ic_errorstatus = 2130837506;
+			public const int ab_solid_mytheme = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int ic_successstatus = 2130837507;
+			public const int ab_stacked_solid_mytheme = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int icon = 2130837508;
+			public const int ab_texture_tile_mytheme = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int refresh = 2130837509;
+			public const int ab_transparent_mytheme = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int roundedbg = 2130837510;
+			public const int arrow_left = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int roundedbgdark = 2130837511;
+			public const int bottom = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int top = 2130837512;
+			public const int btn_cab_done_default_mytheme = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int btn_cab_done_focused_mytheme = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int btn_cab_done_mytheme = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int btn_cab_done_pressed_mytheme = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int cab_background_bottom_mytheme = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int cab_background_top_mytheme = 2130837517;
+			
+			// aapt resource value: 0x7f02000e
+			public const int favorite = 2130837518;
+			
+			// aapt resource value: 0x7f02000f
+			public const int ic_errorstatus = 2130837519;
+			
+			// aapt resource value: 0x7f020010
+			public const int ic_successstatus = 2130837520;
+			
+			// aapt resource value: 0x7f020011
+			public const int icon = 2130837521;
+			
+			// aapt resource value: 0x7f020012
+			public const int list_focused_mytheme = 2130837522;
+			
+			// aapt resource value: 0x7f020013
+			public const int list_pressed_mytheme = 2130837523;
+			
+			// aapt resource value: 0x7f020014
+			public const int menu_dropdown_panel_mytheme = 2130837524;
+			
+			// aapt resource value: 0x7f020015
+			public const int progress_bg_mytheme = 2130837525;
+			
+			// aapt resource value: 0x7f020016
+			public const int progress_horizontal_mytheme = 2130837526;
+			
+			// aapt resource value: 0x7f020017
+			public const int progress_primary_mytheme = 2130837527;
+			
+			// aapt resource value: 0x7f020018
+			public const int progress_secondary_mytheme = 2130837528;
+			
+			// aapt resource value: 0x7f020019
+			public const int refresh = 2130837529;
+			
+			// aapt resource value: 0x7f02001a
+			public const int roundedbg = 2130837530;
+			
+			// aapt resource value: 0x7f02001b
+			public const int roundedbgdark = 2130837531;
+			
+			// aapt resource value: 0x7f02001c
+			public const int selectable_background_mytheme = 2130837532;
+			
+			// aapt resource value: 0x7f02001d
+			public const int spinner_ab_default_mytheme = 2130837533;
+			
+			// aapt resource value: 0x7f02001e
+			public const int spinner_ab_disabled_mytheme = 2130837534;
+			
+			// aapt resource value: 0x7f02001f
+			public const int spinner_ab_focused_mytheme = 2130837535;
+			
+			// aapt resource value: 0x7f020020
+			public const int spinner_ab_pressed_mytheme = 2130837536;
+			
+			// aapt resource value: 0x7f020021
+			public const int spinner_background_ab_mytheme = 2130837537;
+			
+			// aapt resource value: 0x7f020022
+			public const int tab_indicator_ab_mytheme = 2130837538;
+			
+			// aapt resource value: 0x7f020023
+			public const int tab_selected_focused_mytheme = 2130837539;
+			
+			// aapt resource value: 0x7f020024
+			public const int tab_selected_mytheme = 2130837540;
+			
+			// aapt resource value: 0x7f020025
+			public const int tab_selected_pressed_mytheme = 2130837541;
+			
+			// aapt resource value: 0x7f020026
+			public const int tab_unselected_focused_mytheme = 2130837542;
+			
+			// aapt resource value: 0x7f020027
+			public const int tab_unselected_mytheme = 2130837543;
+			
+			// aapt resource value: 0x7f020028
+			public const int tab_unselected_pressed_mytheme = 2130837544;
+			
+			// aapt resource value: 0x7f020029
+			public const int top = 2130837545;
 			
 			static Drawable()
 			{
@@ -159,17 +274,17 @@ namespace Discuz.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050002
-			public const int loadingImage = 2131034114;
+			// aapt resource value: 0x7f070002
+			public const int loadingImage = 2131165186;
 			
-			// aapt resource value: 0x7f050000
-			public const int loadingProgressBar = 2131034112;
+			// aapt resource value: 0x7f070000
+			public const int loadingProgressBar = 2131165184;
 			
-			// aapt resource value: 0x7f050003
-			public const int loadingProgressWheel = 2131034115;
+			// aapt resource value: 0x7f070003
+			public const int loadingProgressWheel = 2131165187;
 			
-			// aapt resource value: 0x7f050001
-			public const int textViewStatus = 2131034113;
+			// aapt resource value: 0x7f070001
+			public const int textViewStatus = 2131165185;
 			
 			static Id()
 			{
@@ -221,6 +336,58 @@ namespace Discuz.Droid
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f060004
+			public const int ActionBar_Solid_Mytheme = 2131099652;
+			
+			// aapt resource value: 0x7f060005
+			public const int ActionBar_Transparent_Mytheme = 2131099653;
+			
+			// aapt resource value: 0x7f060008
+			public const int ActionBarTabStyle_Mytheme = 2131099656;
+			
+			// aapt resource value: 0x7f06000b
+			public const int ActionButton_CloseMode_Mytheme = 2131099659;
+			
+			// aapt resource value: 0x7f060007
+			public const int DropDownListView_Mytheme = 2131099655;
+			
+			// aapt resource value: 0x7f060009
+			public const int DropDownNav_Mytheme = 2131099657;
+			
+			// aapt resource value: 0x7f060001
+			public const int MyActionBar = 2131099649;
+			
+			// aapt resource value: 0x7f060000
+			public const int MyTheme = 2131099648;
+			
+			// aapt resource value: 0x7f060002
+			public const int MyTheme_ActionBar_TitleTextStyle = 2131099650;
+			
+			// aapt resource value: 0x7f060006
+			public const int PopupMenu_Mytheme = 2131099654;
+			
+			// aapt resource value: 0x7f06000a
+			public const int ProgressBar_Mytheme = 2131099658;
+			
+			// aapt resource value: 0x7f060003
+			public const int Theme_Mytheme = 2131099651;
+			
+			// aapt resource value: 0x7f06000c
+			public const int Theme_Mytheme_Widget = 2131099660;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}
