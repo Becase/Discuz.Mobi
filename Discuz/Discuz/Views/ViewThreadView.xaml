@@ -6,6 +6,7 @@
              xmlns:ctrls="clr-namespace:Discuz.Controls;assembly=Discuz"
              Title="{Binding DisplayName}"
              x:Name="root"
+             BackgroundColor="#1e5263"
              >
 
   <ContentPage.ToolbarItems>

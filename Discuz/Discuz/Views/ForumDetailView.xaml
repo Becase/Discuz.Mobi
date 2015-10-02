@@ -33,21 +33,21 @@
     </StackLayout>
 
     <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3">
-      <Label Text="{Binding Data.Name}" Style="{StaticResource ForumTitle}" />
+      <Label Text="{Binding Data.Name}" Style="{StaticResource TitleLabel}" />
     </StackLayout>
 
-    <Label Text="{Binding Data.Description, Converter={StaticResource HtmlClear}}" Style="{StaticResource ForumDescription}" Grid.Row="1" Grid.ColumnSpan="3" />
+    <Label Text="{Binding Data.Description, Converter={StaticResource HtmlClear}}" Style="{StaticResource DescLabel}" Grid.Row="1" Grid.ColumnSpan="3" />
 
-    <ctrls:Border Grid.Row="2" Grid.Column="0" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="12" Padding="10,1,10,4">
-      <Label Text="{Binding Data.Threads,StringFormat='主题: {0}'}" Style="{StaticResource ForumDescription}" />
+    <ctrls:Border Grid.Row="2" Grid.Column="0" Style="{StaticResource DetailBorder}">
+      <Label Text="{Binding Data.Threads,StringFormat='主题: {0}'}" Style="{StaticResource DetailLabel}" />
     </ctrls:Border>
 
-    <ctrls:Border Grid.Row="2" Grid.Column="1" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="12" Padding="10,1,10,4">
-      <Label Text="{Binding Data.Posts,StringFormat='贴子: {0}'}" Style="{StaticResource ForumDescription}" />
+    <ctrls:Border Grid.Row="2" Grid.Column="1" Style="{StaticResource DetailBorder}">
+      <Label Text="{Binding Data.Posts,StringFormat='贴子: {0}'}" Style="{StaticResource DetailLabel}" />
     </ctrls:Border>
 
-    <ctrls:Border Grid.Row="2" Grid.Column="2" StrokeThickness="1" Stroke="#999999" BackgroundColor="#666666" CornerRadius="12" Padding="10,1,10,4">
-      <Label Text="{Binding Data.TodayPosts,StringFormat='今日回贴: {0}'}" Style="{StaticResource ForumDescription}" />
+    <ctrls:Border Grid.Row="2" Grid.Column="2" Style="{StaticResource DetailBorder}">
+      <Label Text="{Binding Data.TodayPosts,StringFormat='今日回贴: {0}'}" Style="{StaticResource DetailLabel}" />
     </ctrls:Border>
   </Grid>
 

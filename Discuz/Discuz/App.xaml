@@ -3,21 +3,49 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
     xmlns:cvt="clr-namespace:Discuz.Converters;assembly=Discuz"
-    x:Class="Discuz.App">
+    xmlns:ctrls="clr-namespace:Discuz.Controls;assembly=Discuz"
+    x:Class="Discuz.App"
+    >
   <Application.Resources>
     <ResourceDictionary>
 
       <cvt:HtmlClearConverter x:Key="HtmlClear" />
+
+      <!--不起作用-->
+      <!--<Style TargetType="Page">
+        <Setter Property="BackgroundColor" Value="#1e5263" />
+      </Style>-->
       
-      <Style x:Key="ForumTitle" TargetType="Label">
+      <Style x:Key="TitleLabel" TargetType="Label">
         <Setter Property="FontSize" Value="20" />
         <Setter Property="TextColor" Value="#eeeeee" />
       </Style>
-      <Style x:Key="ForumDescription" TargetType="Label">
-        <Setter Property="FontSize" Value="15" />
-        <Setter Property="TextColor" Value="#dddddd" />
-      </Style>
       
+      <Style x:Key="DescLabel" TargetType="Label">
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="TextColor" Value="#cccccc" />
+      </Style>
+
+      <Style x:Key="DetailLabel" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextColor" Value="#bbbbbb" />
+      </Style>
+
+      <Style x:Key="BlockBorder" TargetType="{x:Type ctrls:Border}">
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Stroke" Value="#79a8b7" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="BackgroundColor" Value="#436671" />
+      </Style>
+
+      <Style x:Key="DetailBorder" TargetType="{x:Type ctrls:Border}">
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="StrokeThickness" Value="0.5" />
+        <Setter Property="Stroke" Value="#ffffff" />
+        <Setter Property="Padding" Value="10,1,10,4" />
+        <Setter Property="BackgroundColor" Value="#1e5263" />
+      </Style>      
       
     </ResourceDictionary>
   </Application.Resources>

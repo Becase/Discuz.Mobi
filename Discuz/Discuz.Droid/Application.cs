@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Caliburn.Micro;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace Discuz.Droid {
     [Application]
@@ -19,6 +20,12 @@ namespace Discuz.Droid {
 
         public Application(IntPtr javaReference, JniHandleOwnership transfer)
             : base(javaReference, transfer) {
+
+            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+        }
+
+        private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e) {
+            e.SetObserved();
         }
 
         public override void OnCreate() {

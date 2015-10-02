@@ -25,15 +25,15 @@
        Source="{Binding Data.AuthorImg}"
        Aspect="AspectFit"
            />
-      <Label Text="{Binding Data.Author}" Style="{StaticResource ForumDescription}" HorizontalOptions="Center" />
-      <Label Text="{Binding Data.Date, Converter={StaticResource HtmlClear}}" Style="{StaticResource ForumDescription}" HorizontalOptions="Center" />
+      <Label Text="{Binding Data.Author}" Style="{StaticResource DetailLabel}" HorizontalOptions="Center" />
+      <Label Text="{Binding Data.Date, Converter={StaticResource HtmlClear}}" Style="{StaticResource DetailLabel}" HorizontalOptions="Center" />
     </StackLayout>
-    <Label Text="{Binding Data.Subject}" Grid.Row="0" Grid.Column="1" Style="{StaticResource ForumTitle}" />
+    <Label Text="{Binding Data.Subject}" Grid.Row="0" Grid.Column="1" Style="{StaticResource TitleLabel}" />
 
-    <ctrls:Border CornerRadius="12" Padding="10,1,10,4" Stroke="#999999" BackgroundColor="#666666" StrokeThickness="1" Grid.Row="1" Grid.Column="1" VerticalOptions="EndAndExpand" HorizontalOptions="Start">
+    <ctrls:Border Style="{StaticResource DetailBorder}" Grid.Row="1" Grid.Column="1" VerticalOptions="EndAndExpand" HorizontalOptions="Start">
       <StackLayout Orientation="Horizontal">
-        <Label Text="{Binding Data.Views, StringFormat='阅读{0}'}" Style="{StaticResource ForumDescription}" WidthRequest="80" />
-        <Label Text="{Binding Data.Replies, StringFormat='回复{0}'}" Style="{StaticResource ForumDescription}" WidthRequest="80" />
+        <Label Text="{Binding Data.Views, StringFormat='阅读{0}'}" Style="{StaticResource DetailLabel}" WidthRequest="80" />
+        <Label Text="{Binding Data.Replies, StringFormat='回复{0}'}" Style="{StaticResource DetailLabel}" WidthRequest="80" />
       </StackLayout>
     </ctrls:Border>
 

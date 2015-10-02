@@ -15,6 +15,10 @@ namespace Discuz.WinPhone {
             this.Initialize();
         }
 
+        protected override void OnUnhandledException(object sender, System.Windows.ApplicationUnhandledExceptionEventArgs e) {
+            //base.OnUnhandledException(sender, e);
+            e.Handled = true;
+        }
 
         protected override void Configure() {
             base.Configure();

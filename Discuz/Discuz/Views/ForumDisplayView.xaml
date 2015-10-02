@@ -6,6 +6,7 @@
              xmlns:ctrls="clr-namespace:Discuz.Controls;assembly=Discuz"
              Title="{Binding DisplayName}"
              x:Name="root"
+             BackgroundColor="#1e5263"
              >
 
   <ContentPage.ToolbarItems>
@@ -26,7 +27,7 @@
       <DataTemplate>
         <ViewCell>
           <StackLayout Padding="5,1">
-            <ctrls:Border CornerRadius="5" StrokeThickness="1" Stroke="#cccccc" BackgroundColor="Gray" Padding="5">
+            <ctrls:Border Style="{StaticResource BlockBorder}">
               <ContentView cal:View.Model="{Binding }" />
             </ctrls:Border>
           </StackLayout>
