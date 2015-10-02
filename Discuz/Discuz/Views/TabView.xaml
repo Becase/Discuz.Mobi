@@ -5,6 +5,7 @@
             xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
             xmlns:local="clr-namespace:Discuz;assembly=Discuz"
             ItemsSource="{Binding Datas}"
+            Title="蓝色理想"
             >
 
   <TabbedPage.ItemTemplate>
