@@ -18,8 +18,8 @@
        Source="{Binding Data.AuthorImg}"
        Aspect="AspectFit"
            />
-      <Label Text="{Binding Data.Author}" Style="{StaticResource DescLabel}" HorizontalOptions="Center" />
-      <Label Text="{Binding Data.Date, Converter={StaticResource HtmlClear}}" Style="{StaticResource DescLabel}" HorizontalOptions="Center" />
+      <Label Text="{Binding Data.Author}" Style="{StaticResource DetailLabel}" HorizontalOptions="Center" />
+      <Label Text="{Binding Data.Date, Converter={StaticResource HtmlClear}}" Style="{StaticResource DetailLabel}" HorizontalOptions="Center" />
     </StackLayout>
 
     <!--<WebView Source="{Binding Data.Content}" Grid.Row="0" Grid.Column="1" />-->

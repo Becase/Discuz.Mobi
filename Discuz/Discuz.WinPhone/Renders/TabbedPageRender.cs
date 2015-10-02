@@ -13,6 +13,7 @@ namespace Discuz.WinPhone.Renders {
 
         public TabbedPageRender() {
             this.HeaderTemplate = (System.Windows.DataTemplate)System.Windows.Application.Current.Resources["TabbedPageHeader1"];
+            this.Style = (System.Windows.Style)System.Windows.Application.Current.Resources["MyPivot"];
         }
 
         protected override void OnSelectionChanged(System.Windows.Controls.SelectionChangedEventArgs e) {

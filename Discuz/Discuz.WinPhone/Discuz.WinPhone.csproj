@@ -135,6 +135,7 @@
     <Content Include="arrow_left.png" />
     <Content Include="bottom.png" />
     <Content Include="favorite.png" />
+    <Content Include="icon.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="refresh.png" />
     <Content Include="SplashScreenImage.jpg">

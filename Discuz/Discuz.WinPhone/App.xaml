@@ -6,6 +6,8 @@
     xmlns:cvt="clr-namespace:Discuz.WinPhone.Converters"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:Primitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone"
     >
 
     <Application.Resources>
@@ -19,8 +21,23 @@
                     <cvt:BoolToVisibility x:Key="boolCvt" />
                     <DataTemplate x:Key="TabbedPageHeader1">
                         <StackPanel>
-                            <TextBlock Text="{Binding Title}" FontSize="30" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                                    <!--<i:Interaction.Triggers>
+
+                            <Border CornerRadius="20" Padding="15,0" Background="#33ffffff" BorderBrush="#33999999" BorderThickness="1">
+                                <TextBlock Text="{Binding Title}" FontSize="30" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+                                <i:Interaction.Triggers>
+                                    <ec:DataTrigger Binding="{Binding IsEnabled}" Value="False">
+                                        <ec:ChangePropertyAction PropertyName="Background" Value="Transparent" />
+                                        <ec:ChangePropertyAction PropertyName="BorderBrush" Value="Transparent" />
+                                        <ec:ChangePropertyAction PropertyName="Padding" Value="0" />
+                                    </ec:DataTrigger>
+                                    <ec:DataTrigger Binding="{Binding IsEnabled}" Value="True">
+                                        <ec:ChangePropertyAction PropertyName="Background" Value="#33ffffff" />
+                                        <ec:ChangePropertyAction PropertyName="BorderBrush" Value="#33999999" />
+                                        <ec:ChangePropertyAction PropertyName="Padding" Value="15,0" />
+                                    </ec:DataTrigger>
+                                </i:Interaction.Triggers>
+                            </Border>
+                            <!--<i:Interaction.Triggers>
                                         <ec:DataTrigger Binding="{Binding IsEnabled}" Value="False">
                                             <ec:ChangePropertyAction PropertyName="Padding" Value="0" />
                                         </ec:DataTrigger>
@@ -28,20 +45,93 @@
                                             <ec:ChangePropertyAction PropertyName="Padding" Value="0,0,50,0" />
                                         </ec:DataTrigger>
                                     </i:Interaction.Triggers>-->
-                            </TextBlock>
-                            <!--<Rectangle Height="2" Fill="Green" Visibility="{Binding IsEnabled,Converter={StaticResource boolCvt}}" />-->
-                            <Rectangle Height="2" Fill="Green">
+
+                            <!--<Rectangle Height="1" Fill="#FF6699">
                                 <i:Interaction.Triggers>
                                     <ec:DataTrigger Binding="{Binding IsEnabled}" Value="False">
-                                        <ec:ChangePropertyAction PropertyName="Fill" Value="Gray" />
+                                        <ec:ChangePropertyAction PropertyName="Fill" Value="Transparent" />
                                     </ec:DataTrigger>
                                     <ec:DataTrigger Binding="{Binding IsEnabled}" Value="True">
                                         <ec:ChangePropertyAction PropertyName="Fill" Value="Green" />
-                                    </ec:DataTrigger>                                    
+                                    </ec:DataTrigger>
                                 </i:Interaction.Triggers>
-                            </Rectangle>
+                            </Rectangle>-->
                         </StackPanel>
                     </DataTemplate>
+
+
+
+
+                    <Style x:Key="PivotHeadersControlStyle1" TargetType="Primitives:PivotHeadersControl">
+                        <Setter Property="ItemsPanel">
+                            <Setter.Value>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="ItemContainerStyle">
+                            <Setter.Value>
+                                <Style TargetType="Primitives:PivotHeaderItem">
+                                    <Setter Property="FontSize" Value="30"/>
+                                    <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}"/>
+                                </Style>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Primitives:PivotHeadersControl">
+                                    <Canvas x:Name="Canvas">
+                                        <ItemsPresenter x:Name="HeaderItemsPresenter"/>
+                                    </Canvas>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+
+
+
+                    <Style x:Key="MyPivot" TargetType="phone:Pivot">
+                        <Setter Property="Margin" Value="0"/>
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="ItemsPanel">
+                            <Setter.Value>
+                                <ItemsPanelTemplate>
+                                    <Grid/>
+                                </ItemsPanelTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="phone:Pivot">
+                                    <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Background="{TemplateBinding Background}" Grid.RowSpan="3"/>
+                                        <Grid Background="#FF099CCD">
+                                            <StackPanel Orientation="Horizontal" Margin="20,0">
+                                                <Image Source="icon.png" Width="40" Height="40" Margin="0,0,10,0" />
+                                                <ContentControl x:Name="TitleElement" ContentTemplate="{TemplateBinding TitleTemplate}" Content="{TemplateBinding Title}" HorizontalAlignment="Left" Margin="0" Style="{StaticResource PivotTitleStyle}" Background="#FF099CCD"/>
+                                            </StackPanel>
+                                        </Grid>
+
+                                        <Grid Background="#FF1B7592" Grid.Row="1">
+                                            <Grid Margin="0,5">
+                                                <Primitives:PivotHeadersControl x:Name="HeadersListElement" Style="{StaticResource PivotHeadersControlStyle1}" Grid.Row="1" />
+                                            </Grid>
+                                        </Grid>
+                                        <ItemsPresenter x:Name="PivotItemPresenter" Margin="{TemplateBinding Padding}" Grid.Row="2"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+
                 </ResourceDictionary>
 
             </ResourceDictionary.MergedDictionaries>
