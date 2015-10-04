@@ -45,6 +45,7 @@
     <Compile Include="PropertyHelper.cs" />
     <Compile Include="Services\IToast.cs" />
     <Compile Include="ViewLocatorPage.cs" />
+    <Compile Include="ViewModels\FavoriteViewModel.cs" />
     <Compile Include="ViewModels\ForumDetailViewModel.cs" />
     <Compile Include="ViewModels\ForumDisplayViewModel.cs" />
     <Compile Include="ViewModels\ForumIndexViewModel.cs" />
@@ -54,6 +55,9 @@
     <Compile Include="ViewModels\TabViewModel.cs" />
     <Compile Include="ViewModels\ThreadSummaryViewModel.cs" />
     <Compile Include="ViewModels\ViewThreadViewModel.cs" />
+    <Compile Include="Views\FavoriteView.xaml.cs">
+      <DependentUpon>FavoriteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ForumDetailView.xaml.cs">
       <DependentUpon>ForumDetailView.xaml</DependentUpon>
     </Compile>
@@ -174,6 +178,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\SettingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\FavoriteView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

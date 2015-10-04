@@ -12,6 +12,7 @@ using Android.Widget;
 using Caliburn.Micro;
 using System.Reflection;
 using System.Threading.Tasks;
+using Java.Lang;
 
 namespace Discuz.Droid {
     [Application]
@@ -21,12 +22,26 @@ namespace Discuz.Droid {
         public Application(IntPtr javaReference, JniHandleOwnership transfer)
             : base(javaReference, transfer) {
 
-            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+
+            //TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+            Thread.DefaultUncaughtExceptionHandler = new MyUncaughtExceptionHandler();
+            AndroidEnvironment.UnhandledExceptionRaiser += AndroidEnvironment_UnhandledExceptionRaiser;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
         }
 
-        private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e) {
-            e.SetObserved();
+        void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) {
+
         }
+
+        void AndroidEnvironment_UnhandledExceptionRaiser(object sender, RaiseThrowableEventArgs e) {
+            //线程取消异常, 不好捕捉,在这里可以处理掉.
+            //System.Threading.Tasks.TaskCanceledException: A task was canceled.
+            e.Handled = true;
+        }
+
+        //private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e) {
+        //    e.SetObserved();
+        //}
 
         public override void OnCreate() {
             base.OnCreate();

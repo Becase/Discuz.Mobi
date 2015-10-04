@@ -30,6 +30,7 @@ namespace Discuz {
                 .PerRequest<ForumDisplayViewModel>("ForFavorite")
                 .Singleton<ViewThreadViewModel>()
                 .Singleton<SettingViewModel>()
+                .Singleton<FavoriteViewModel>()
                 .PerRequest<LoginViewModel>();
 
             this.DisplayRootView<TabView>();

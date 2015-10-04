@@ -2,5 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Discuz.Views.SettingView">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <TableView>
+    <TableView.Root>
+      <TableSection Title="收藏">
+        <ViewCell>
+          <ViewCell.View>
+            <Button Command="{Binding EditFavoriteCmd}" Text="收藏的版块" />
+          </ViewCell.View>
+        </ViewCell>
+      </TableSection>
+    </TableView.Root>
+  </TableView>
+
 </ContentPage>

@@ -128,6 +128,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Hud.cs" />
+    <Compile Include="MyUncaughtExceptionHandler.cs" />
     <Content Include="Theme 生成器.txt" />
   </ItemGroup>
   <ItemGroup>
