@@ -114,10 +114,15 @@
                                         </Grid.RowDefinitions>
                                         <Grid Background="{TemplateBinding Background}" Grid.RowSpan="3"/>
                                         <Grid Background="#FF099CCD">
+                                            <local:TilePanel TileWidth="6" TileHeight="6" Height="50">
+                                                <local:TilePanel.Image>
+                                                    <ImageBrush ImageSource="texture.png" />
+                                                </local:TilePanel.Image>
+                                            </local:TilePanel>
                                             <StackPanel Orientation="Horizontal" Margin="20,0">
                                                 <Image Source="icon.png" Width="40" Height="40" Margin="0,0,10,0" />
                                                 <ContentControl x:Name="TitleElement" ContentTemplate="{TemplateBinding TitleTemplate}" Content="{TemplateBinding Title}" HorizontalAlignment="Left" Margin="0" Style="{StaticResource PivotTitleStyle}" Background="#FF099CCD"/>
-                                            </StackPanel>
+                                            </StackPanel>                                            
                                         </Grid>
 
                                         <Grid Background="#FF1B7592" Grid.Row="1">

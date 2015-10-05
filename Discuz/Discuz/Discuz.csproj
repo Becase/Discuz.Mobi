@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Behaviors\DragableBehaviors.cs" />
     <Compile Include="Controls\Border.cs" />
     <Compile Include="Converters\HtmlClearConverter.cs" />
     <Compile Include="HtmlClear.cs" />

@@ -112,6 +112,7 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\Hud.cs" />
+    <Compile Include="TilePanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -132,6 +133,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="texture.png" />
     <Content Include="arrow_left.png" />
     <Content Include="bottom.png" />
     <Content Include="favorite.png" />
