@@ -17,6 +17,7 @@
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="60" />
+      <ColumnDefinition Width="1" />
       <ColumnDefinition />
     </Grid.ColumnDefinitions>
 
@@ -24,19 +25,18 @@
       <Image WidthRequest="50" HeightRequest="50" Source="{Binding Data.AuthorImg}" Aspect="AspectFit" />
     </ctrls:CycleBox>
 
-    <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-      <BoxView Color="White" WidthRequest="3" />
-      <Label Text="{Binding Data.Subject}" Style="{StaticResource TitleLabel}" VerticalOptions="Center" />
-    </StackLayout>
+    <BoxView Color="#55999999" WidthRequest="0.5" HeightRequest="30" VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" />
 
-    <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+    <Label Text="{Binding Data.Subject}" Style="{StaticResource TitleLabel2}" Grid.Row="0" Grid.Column="2" />
+
+    <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="1">
       <Label Text="{Binding Data.Author}" Style="{StaticResource DetailLabel}" HorizontalOptions="Center" />
       <Label Text="{Binding Data.Date, Converter={StaticResource HtmlClear}}" Style="{StaticResource DetailLabel}" HorizontalOptions="Center" />
       <Label Text="{Binding Data.Views, StringFormat='读{0}'}" Style="{StaticResource DetailLabel}" />
       <Label Text="{Binding Data.Replies, StringFormat='回{0}'}" Style="{StaticResource DetailLabel}" />
     </StackLayout>
 
-    <Image Source="arrow_left.png" HeightRequest="20" WidthRequest="20" Grid.Row="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />
+    <Image Source="arrow_left.png" HeightRequest="20" WidthRequest="20" Grid.Row="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />
 
   </Grid>
 
