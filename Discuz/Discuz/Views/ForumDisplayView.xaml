@@ -27,9 +27,10 @@
       <DataTemplate>
         <ViewCell>
           <StackLayout Padding="5,1">
-            <ctrls:Border Style="{StaticResource BlockBorder}">
+            <!--<ctrls:Border Style="{StaticResource BlockBorder}">-->
               <ContentView cal:View.Model="{Binding }" />
-            </ctrls:Border>
+            <BoxView Color="Gray" HeightRequest="1" />
+            <!--</ctrls:Border>-->
           </StackLayout>
         </ViewCell>
       </DataTemplate>

@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renders\BorderRender.cs" />
+    <Compile Include="Renders\CycleBoxRender.cs" />
     <Compile Include="Renders\TabbedPageRender.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>

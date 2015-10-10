@@ -15,27 +15,26 @@
       <RowDefinition Height="auto" />
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="80" />
+      <ColumnDefinition Width="60" />
       <ColumnDefinition />
     </Grid.ColumnDefinitions>
 
-    <StackLayout Grid.RowSpan="2">
-      <Image WidthRequest="50"
-       HeightRequest="50"
-       Source="{Binding Data.AuthorImg}"
-       Aspect="AspectFit"
-           />
+    <ctrls:CycleBox BackgroundColor="Green" Radius="25" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+      <Image WidthRequest="50" HeightRequest="50" Source="{Binding Data.AuthorImg}" Aspect="AspectFit" />
+    </ctrls:CycleBox>
+
+    <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+      <BoxView Color="White" WidthRequest="3" />
+      <Label Text="{Binding Data.Subject}" Style="{StaticResource TitleLabel}" VerticalOptions="Center" />
+    </StackLayout>
+
+    <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
       <Label Text="{Binding Data.Author}" Style="{StaticResource DetailLabel}" HorizontalOptions="Center" />
       <Label Text="{Binding Data.Date, Converter={StaticResource HtmlClear}}" Style="{StaticResource DetailLabel}" HorizontalOptions="Center" />
-    </StackLayout>
-    <Label Text="{Binding Data.Subject}" Grid.Row="0" Grid.Column="1" Style="{StaticResource TitleLabel}" />
 
-    <ctrls:Border Style="{StaticResource DetailBorder}" Grid.Row="1" Grid.Column="1" VerticalOptions="EndAndExpand" HorizontalOptions="Start">
-      <StackLayout Orientation="Horizontal">
-        <Label Text="{Binding Data.Views, StringFormat='阅读{0}'}" Style="{StaticResource DetailLabel}" WidthRequest="80" />
-        <Label Text="{Binding Data.Replies, StringFormat='回复{0}'}" Style="{StaticResource DetailLabel}" WidthRequest="80" />
-      </StackLayout>
-    </ctrls:Border>
+      <Label Text="{Binding Data.Views, StringFormat='读{0}'}" Style="{StaticResource DetailLabel}" WidthRequest="80" />
+      <Label Text="{Binding Data.Replies, StringFormat='回{0}'}" Style="{StaticResource DetailLabel}" WidthRequest="80" />
+    </StackLayout>
 
     <Image Source="arrow_left.png" HeightRequest="20" WidthRequest="20" Grid.Row="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />
 
