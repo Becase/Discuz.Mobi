@@ -21,7 +21,8 @@
             SeparatorVisibility="None"
             IsPullToRefreshEnabled="True"
             RefreshCommand="{Binding RefreshCmd}"
-            IsRefreshing="{Binding InRefresh}">
+            IsRefreshing="{Binding InRefresh}"
+            >
 
     <ListView.ItemTemplate>
       <DataTemplate>

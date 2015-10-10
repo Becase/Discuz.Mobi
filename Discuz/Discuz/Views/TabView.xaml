@@ -7,6 +7,7 @@
             ItemsSource="{Binding Datas}"
             Title="蓝色理想"
             BackgroundColor="#1e5263"
+            Padding="0"
             >
 
   <TabbedPage.ItemTemplate>

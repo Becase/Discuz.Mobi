@@ -46,6 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyHelper.cs" />
     <Compile Include="Services\IToast.cs" />
+    <Compile Include="UniPadding.cs" />
     <Compile Include="ViewLocatorPage.cs" />
     <Compile Include="ViewModels\FavoriteViewModel.cs" />
     <Compile Include="ViewModels\ForumDetailViewModel.cs" />

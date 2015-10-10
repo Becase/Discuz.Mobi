@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Discuz.Views.ThreadSummaryView"
              xmlns:ctrls="clr-namespace:Discuz.Controls;assembly=Discuz"
+             xmlns:local="clr-namespace:Discuz;assembly=Discuz"
              >
 
   <ContentView.GestureRecognizers>
@@ -31,9 +32,8 @@
     <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
       <Label Text="{Binding Data.Author}" Style="{StaticResource DetailLabel}" HorizontalOptions="Center" />
       <Label Text="{Binding Data.Date, Converter={StaticResource HtmlClear}}" Style="{StaticResource DetailLabel}" HorizontalOptions="Center" />
-
-      <Label Text="{Binding Data.Views, StringFormat='读{0}'}" Style="{StaticResource DetailLabel}" WidthRequest="80" />
-      <Label Text="{Binding Data.Replies, StringFormat='回{0}'}" Style="{StaticResource DetailLabel}" WidthRequest="80" />
+      <Label Text="{Binding Data.Views, StringFormat='读{0}'}" Style="{StaticResource DetailLabel}" />
+      <Label Text="{Binding Data.Replies, StringFormat='回{0}'}" Style="{StaticResource DetailLabel}" />
     </StackLayout>
 
     <Image Source="arrow_left.png" HeightRequest="20" WidthRequest="20" Grid.Row="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />

@@ -20,7 +20,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <local:TilePanel TileWidth="6" TileHeight="6" Height="50" Grid.Row="0">
+        <local:TilePanel TileWidth="5" TileHeight="5" Height="50" Grid.Row="0">
             <local:TilePanel.Image>
                 <ImageBrush ImageSource="texture.png" />
             </local:TilePanel.Image>
