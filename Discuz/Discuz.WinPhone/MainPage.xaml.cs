@@ -14,9 +14,10 @@ using System.ComponentModel;
 using System.Windows.Media;
 
 namespace Discuz.WinPhone {
-    public partial class MainPage : global::Xamarin.Forms.Platform.WinPhone.FormsApplicationPage {
+    public partial class MainPage : FormsApplicationPage, INotifyPropertyChanged {
 
-        private Platform platform = null;
+        public event PropertyChangedEventHandler PropertyChanged;
+        private Platform Platform;
 
         public MainPage() {
             InitializeComponent();
@@ -30,10 +31,12 @@ namespace Discuz.WinPhone {
             //菜单栏最小化
             this.ApplicationBar.Opacity = 0.75;
             this.ApplicationBar.Mode = ApplicationBarMode.Minimized;
+            this.ApplicationBar.BackgroundColor = Color.FromArgb(255, 27, 117, 146);//FF1B7592
+
+            this.DataContext = this;
         }
 
-
-        protected void LoadApplication(Xamarin.Forms.Application application) {
+        new protected void LoadApplication(Xamarin.Forms.Application application) {
             //Xamarin.Forms.Application.Current = application;
             typeof(Xamarin.Forms.Application).GetProperty("Current", BindingFlags.Static | BindingFlags.Public)
                 .SetValue(Xamarin.Forms.Application.Current, application);
@@ -48,22 +51,36 @@ namespace Discuz.WinPhone {
                 .Invoke(application, null);
 
             this.SetMainPage();
+
+            var mp = (Xamarin.Forms.NavigationPage)application.MainPage;
+            mp.PropertyChanged += MainPage_PropertyChanged;
+            this.Title = mp.Title;
         }
 
-        private void SetMainPage() {
-            if (this.platform == null)
-                this.platform = new Platform((PhoneApplicationPage)this);
-
-            this.platform.SetPage(Xamarin.Forms.Application.Current.MainPage);
-            if (this.mainBody.Content != null && this.mainBody.Content.Equals(this.platform))
-                return;
-            this.mainBody.Content = (UIElement)this.platform;
+        void MainPage_PropertyChanged(object sender, PropertyChangedEventArgs e) {
+            if (e.PropertyName.Equals("CurrentPage")) {
+                this.Title = ((Xamarin.Forms.NavigationPage)sender).CurrentPage.Title;
+                this.PropertyChanged(this, new PropertyChangedEventArgs("Title"));
+            }
         }
 
+
+        //不会执行
         private void ApplicationOnPropertyChanged(object sender, PropertyChangedEventArgs args) {
             if (!(args.PropertyName == "MainPage"))
                 return;
             this.SetMainPage();
+        }
+
+        private void SetMainPage() {
+            if (this.Platform == null) {
+                this.Platform = new Platform((PhoneApplicationPage)this);
+            }
+
+            this.Platform.SetPage(Xamarin.Forms.Application.Current.MainPage);
+            if (this.mainBody.Content != null && this.mainBody.Content.Equals(this.Platform))
+                return;
+            this.mainBody.Content = (UIElement)this.Platform;
         }
     }
 }

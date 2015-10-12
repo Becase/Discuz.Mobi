@@ -70,6 +70,7 @@ namespace Discuz {
         }
 
         protected override void PrepareViewFirst(NavigationPage navigationPage) {
+            navigationPage.Title = "蓝色理想";
             this.Container.Instance<INavigationService>(new NavigationPageAdapter(navigationPage));
         }
 
