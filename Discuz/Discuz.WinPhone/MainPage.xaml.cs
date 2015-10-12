@@ -32,7 +32,6 @@ namespace Discuz.WinPhone {
             this.ApplicationBar.Opacity = 0.75;
             this.ApplicationBar.Mode = ApplicationBarMode.Minimized;
             this.ApplicationBar.BackgroundColor = Color.FromArgb(255, 27, 117, 146);//FF1B7592
-
             this.DataContext = this;
         }
 

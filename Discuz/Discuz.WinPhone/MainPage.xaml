@@ -13,24 +13,29 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="False">
+    shell:SystemTray.IsVisible="True"
+    shell:SystemTray.Opacity="0"
+    Background="#1e5263"
+    >
+    <!--shell:SystemTray.BackgroundColor="#2ba9d3"-->
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="15" /><!-- for SystemTray -->
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <local:TilePanel TileWidth="5" TileHeight="5" Height="50" Grid.Row="0">
+        <local:TilePanel TileWidth="5" TileHeight="5" Height="65" Grid.Row="0" Grid.RowSpan="2">
             <local:TilePanel.Image>
                 <ImageBrush ImageSource="texture.png" />
             </local:TilePanel.Image>
         </local:TilePanel>
-        <StackPanel Orientation="Horizontal" Margin="10,0" Grid.Row="0" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Margin="10,0" Grid.Row="1" VerticalAlignment="Center">
             <Image Source="icon.png" Width="40" Height="40" Margin="0,0,10,0" />
             <TextBlock Text="{Binding Title}" VerticalAlignment="Center" />
         </StackPanel>
 
-        <ContentPresenter x:Name="mainBody" Grid.Row="1" />
+        <ContentPresenter x:Name="mainBody" Grid.Row="2" />
     </Grid>
 
 </winPhone:FormsApplicationPage>
