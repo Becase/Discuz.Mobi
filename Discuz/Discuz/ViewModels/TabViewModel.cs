@@ -44,6 +44,14 @@ namespace Discuz.ViewModels {
                     this.AddToFavorite(arg.Item1, arg.Item2);
                 }
             });
+
+            MessagingCenter.Subscribe<FavoriteViewModel, int>(this, FavoriteViewModel.RemoveFavorite, async (sender, arg) => {
+                this.Favorites.Remove((int)arg);
+                var screen = this.Datas.FirstOrDefault(s => s.GetType().Equals(typeof(ForumDisplayViewModel)) && ((ForumDisplayViewModel)s).ID == arg);
+                this.Datas.Remove(screen);
+                this.NotifyOfPropertyChange(() => this.Datas);
+                await this.SaveFavorite();
+            });
         }
 
         private void ShowFavorite(int forumID, string name) {
@@ -56,9 +64,13 @@ namespace Discuz.ViewModels {
         private async void AddToFavorite(int forumID, string name) {
             if (!this.Favorites.ContainsKey(forumID)) {
                 this.Favorites.Add(forumID, name);
-                PropertiesHelper.SetObject("Favorites", this.Favorites);
-                await PropertiesHelper.Save();
+                await this.SaveFavorite();
             }
+        }
+
+        private async Task SaveFavorite() {
+            PropertiesHelper.SetObject("Favorites", this.Favorites);
+            await PropertiesHelper.Save();
         }
     }
 }

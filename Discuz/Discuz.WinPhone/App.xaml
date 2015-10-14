@@ -9,6 +9,8 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:Primitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone"
+    xmlns:winPhone="clr-namespace:Xamarin.Forms.Platform.WinPhone;assembly=Xamarin.Forms.Platform.WP8"
+    xmlns:xf="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
     >
 
     <Application.Resources>

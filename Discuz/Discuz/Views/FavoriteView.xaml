@@ -1,16 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
+             xmlns:local="clr-namespace:Discuz;assembly=Discuz"
              x:Class="Discuz.Views.FavoriteView"
-             Title="收藏的版块">
+             Title="收藏的版块"
+             x:Name="root"
+             >
 
   <ListView ItemsSource="{Binding Datas}">
     <ListView.ItemTemplate>
       <DataTemplate>
         <TextCell Text="{Binding Value}">
-          <!--<TextCell.Behaviors>
-            
-          </TextCell.Behaviors>-->
+          <TextCell.ContextActions>
+            <MenuItem Text="删除"
+                      Command="{Binding BindingContext.RemoveCmd, Source={x:Reference root}}"
+                      CommandParameter="{Binding Key}"
+                      />
+            <!--<MenuItem Text="删除"
+                      Command="{Binding RemoveCmd}"
+                      CommandParameter="{Binding Key}"
+                      BindingContext="{Binding Source={x:Reference root}, Path=BindingContext}"
+                      />-->
+            <!--<MenuItem Text="删除"
+                      cal:Message.Attach="[Event Clicked]=[Action Remove]"
+                      cal:Action.TargetWithoutContext="{Binding Source={x:Reference root}, Path=BindingContext}"
+                      />-->
+          </TextCell.ContextActions>
         </TextCell>
       </DataTemplate>
     </ListView.ItemTemplate>
