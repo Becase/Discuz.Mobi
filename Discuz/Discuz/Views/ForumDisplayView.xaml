@@ -13,6 +13,7 @@
     <ToolbarItem Text="刷新" Icon="refresh.png" Command="{Binding RefreshCmd}" Priority="0" />
     <ToolbarItem Text="顶部" Icon="top.png" Command="{Binding GotoTopCmd}" CommandParameter="{Binding Source={x:Reference lst}}" Order="Secondary" Priority="0" />
     <ToolbarItem Text="底部" Icon="bottom.png" Command="{Binding GotoBottomCmd}" CommandParameter="{Binding Source={x:Reference lst}}" Order="Secondary" Priority="0" />
+    <ToolbarItem Text="在浏览器中打开" Icon="bottom.png" Command="{Binding OpenInBrowserCmd}" CommandParameter="{Binding Source={x:Reference lst}}" Order="Secondary" Priority="0" />
   </ContentPage.ToolbarItems>
 
   <ListView x:Name="lst"

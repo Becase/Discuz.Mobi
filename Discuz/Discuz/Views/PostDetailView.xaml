@@ -4,7 +4,7 @@
              xmlns:ctrls="clr-namespace:Discuz.Controls;assembly=Discuz"
              x:Class="Discuz.Views.PostDetailView">
 
-  <Grid>
+  <Grid Padding="0,5">
     <Grid.RowDefinitions>
       <RowDefinition />
     </Grid.RowDefinitions>
@@ -13,7 +13,7 @@
       <ColumnDefinition />
     </Grid.ColumnDefinitions>
 
-    <StackLayout>
+    <StackLayout HorizontalOptions="Center">
       <ctrls:CycleBox BackgroundColor="Green" Radius="25">
         <Image WidthRequest="50"
          HeightRequest="50"

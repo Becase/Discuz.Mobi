@@ -8,8 +8,9 @@
 
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="刷新" Icon="refresh.png" Command="{Binding RefreshCmd}" Priority="0" />
-    <ToolbarItem Text="顶部" Icon="top.png" Command="{Binding GotoTopCmd}" CommandParameter="{Binding Source={x:Reference lst}}" Priority="0" />
-    <ToolbarItem Text="底部" Icon="bottom.png" Command="{Binding GotoBottomCmd}" CommandParameter="{Binding Source={x:Reference lst}}" Priority="0" />
+    <ToolbarItem Text="顶部" Icon="top.png" Command="{Binding GotoTopCmd}" CommandParameter="{Binding Source={x:Reference lst}}" />
+    <ToolbarItem Text="底部" Icon="bottom.png" Command="{Binding GotoBottomCmd}" CommandParameter="{Binding Source={x:Reference lst}}"  />
+    <ToolbarItem Text="浏览器中打开" Icon="bottom.png" Command="{Binding OpenInBrowserCmd}" CommandParameter="{Binding Source={x:Reference lst}}" Order="Secondary" />
   </ContentPage.ToolbarItems>
 
   <ListView x:Name="lst"
@@ -17,8 +18,8 @@
             HasUnevenRows="True"
             SeparatorVisibility="None"
             IsGroupingEnabled="True"
-            >   
-    
+            >
+
     <ListView.GroupHeaderTemplate>
       <DataTemplate>
         <ViewCell>

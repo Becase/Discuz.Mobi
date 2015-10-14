@@ -64,18 +64,26 @@ namespace Discuz.ViewModels {
             set;
         }
 
+        public ICommand OpenInBrowserCmd {
+            get;
+            set;
+        }
+
         /// <summary>
         /// 从1开始
         /// </summary>
         public int Page = 1;
 
-        protected override void OnActivate() {
-            base.OnActivate();
-
+        public ViewThreadViewModel() {
             this.RefreshCmd = new Command(() => this.LoadData(true));
             this.LoadMoreCmd = new Command(() => this.LoadData(false));
             this.GotoTopCmd = new Command((l) => this.Scroll((ListView)l, true));
             this.GotoBottomCmd = new Command(l => this.Scroll((ListView)l, false));
+            this.OpenInBrowserCmd = new Command(() => this.OpenInBrowser());
+        }
+
+        protected override void OnActivate() {
+            base.OnActivate();
 
             this.Datas = new BindableCollection<PostDetailViewModel>();
 
@@ -123,6 +131,10 @@ namespace Discuz.ViewModels {
             this.InRefresh = false;
             this.NotifyOfPropertyChange(() => this.InRefresh);
             hud.Close();
+        }
+
+        private void OpenInBrowser() {
+            Device.OpenUri(new Uri(string.Format("http://bbs.blueidea.com/thread-{0}-1-1.html", this.ThreadID)));
         }
     }
 }

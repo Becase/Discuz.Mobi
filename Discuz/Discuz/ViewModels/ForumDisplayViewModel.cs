@@ -64,6 +64,11 @@ namespace Discuz.ViewModels {
             set;
         }
 
+        public ICommand OpenInBrowserCmd {
+            get;
+            set;
+        }
+
         /// <summary>
         /// 从1开始
         /// </summary>
@@ -79,6 +84,7 @@ namespace Discuz.ViewModels {
             this.LoadMoreCmd = new Command(() => this.LoadData(false));
             this.GotoTopCmd = new Command((l) => this.Scroll((ListView)l, true));
             this.GotoBottomCmd = new Command(l => this.Scroll((ListView)l, false));
+            this.OpenInBrowserCmd = new Command(() => this.OpenInBrowser());
         }
 
         private void Scroll(ListView lst, bool topOrBottom) {
@@ -134,6 +140,10 @@ namespace Discuz.ViewModels {
             this.NotifyOfPropertyChange(() => this.InRefresh);
 
             hud.Close();
+        }
+
+        private void OpenInBrowser() {
+            Device.OpenUri(new Uri(string.Format("http://bbs.blueidea.com/forum-{0}-1.html", this.ID)));
         }
     }
 }

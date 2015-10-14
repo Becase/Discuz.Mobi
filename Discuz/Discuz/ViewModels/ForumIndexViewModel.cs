@@ -44,6 +44,11 @@ namespace Discuz.ViewModels {
             set;
         }
 
+        public ICommand OpenInBrowserCmd {
+            get;
+            set;
+        }
+
         public ForumIndexViewModel(INavigationService ns) {
             this.LoadData();
             this.NS = ns;
@@ -52,6 +57,7 @@ namespace Discuz.ViewModels {
             this.RefreshCmd = new Command(() => this.LoadData());
             this.GotoTopCmd = new Command((l) => this.Scroll((ListView)l, true));
             this.GotoBottomCmd = new Command(l => this.Scroll((ListView)l, false));
+            this.OpenInBrowserCmd = new Command(() => this.OpenInBrowser());
         }
 
         private void Scroll(ListView lst, bool topOrBottom) {
@@ -78,6 +84,10 @@ namespace Discuz.ViewModels {
             this.NotifyOfPropertyChange(() => this.Datas);
 
             //hud.Close();
+        }
+
+        private void OpenInBrowser() {
+            Device.OpenUri(new Uri("http://bbs.blueidea.com"));
         }
     }
 }

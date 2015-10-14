@@ -10,7 +10,7 @@
     <TapGestureRecognizer Command="{Binding TapCommand}" />
   </ContentView.GestureRecognizers>
 
-  <Grid>
+  <Grid Padding="0,5">
     <Grid.RowDefinitions>
       <RowDefinition Height="auto" />
       <RowDefinition Height="auto" />
