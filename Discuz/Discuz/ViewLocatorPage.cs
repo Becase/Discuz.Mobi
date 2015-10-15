@@ -24,6 +24,9 @@ namespace Discuz {
 
 
         private static void VMChanged(BindableObject bindable, object oldValue, object newValue) {
+            if (newValue == null)
+                return;
+
             var vm = (Screen)newValue;
             //var view = vm.GetView();
             var vmView = ViewLocator.LocateForModel(vm, null, null);

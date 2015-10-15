@@ -245,6 +245,16 @@
                         </Setter>
                     </Style>
 
+
+                    <DataTemplate x:Key="TableGroup1">
+                        <StackPanel Margin="5,20,0,0">
+                            <TextBlock Text="{Binding Title}" Foreground="Green" Style="{StaticResource PhoneTextGroupHeaderStyle}" />
+                            <Border Background="Transparent" BorderBrush="Green" BorderThickness="0,1,0,0">
+                                <ItemsControl ItemsSource="{Binding}" ItemTemplate="{StaticResource CellTemplate}" />
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+
                 </ResourceDictionary>
 
             </ResourceDictionary.MergedDictionaries>

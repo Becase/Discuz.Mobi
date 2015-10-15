@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Discuz.Views.SettingView">
 
-  <TableView>
+  <TableView HasUnevenRows="True">
+   
     <TableView.Root>
       <TableSection Title="收藏">
         <ViewCell>
@@ -12,6 +13,21 @@
           </ViewCell.View>
         </ViewCell>
       </TableSection>
+      
+      <TableSection Title="缓存">
+        <ViewCell>
+          <ViewCell.View>
+            <StackLayout Orientation="Vertical">
+              <Label Text="{Binding CacheSize, StringFormat='当前大小: {0}'}" />
+              <StackLayout Orientation="Horizontal">
+                <Button Command="{Binding CalcCacheSizeCmd}" Text="计算大小" />
+                <Button Command="{Binding ClearCacheCmd}" Text="清理缓存" />
+              </StackLayout>
+            </StackLayout>
+          </ViewCell.View>
+        </ViewCell>
+      </TableSection>
+
     </TableView.Root>
   </TableView>
 

@@ -114,12 +114,14 @@
     <Compile Include="Renders\BorderRender.cs" />
     <Compile Include="Renders\CycleBoxRender.cs" />
     <Compile Include="Renders\TabbedPageRender.cs" />
+    <Compile Include="Renders\TableViewRender.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\Hud.cs" />
+    <Compile Include="Services\Storage.cs" />
     <Compile Include="TilePanel.cs" />
   </ItemGroup>
   <ItemGroup>

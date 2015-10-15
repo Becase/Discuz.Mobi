@@ -131,6 +131,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Hud.cs" />
     <Compile Include="MyUncaughtExceptionHandler.cs" />
+    <Compile Include="Services\Storage.cs" />
     <Content Include="Theme 生成器.txt" />
   </ItemGroup>
   <ItemGroup>
