@@ -15,7 +15,7 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
     shell:SystemTray.Opacity="0"
-    Background="#1e5263"
+    Background="#efefef"
     >
 
     <!--XF For WP 的页面跳转动画被写死在 Platform SetCurrent 方法中-->
@@ -55,7 +55,7 @@
         </local:TilePanel>
         <StackPanel Orientation="Horizontal" Margin="10,0" Grid.Row="1" VerticalAlignment="Center">
             <Image Source="icon.png" Width="40" Height="40" Margin="0,0,10,0" />
-            <TextBlock Text="{Binding Title}" VerticalAlignment="Center" />
+            <TextBlock Text="{Binding Title}" VerticalAlignment="Center" Foreground="White" />
         </StackPanel>
 
         <ContentPresenter x:Name="mainBody" Grid.Row="2" />

@@ -7,6 +7,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Discuz.WinPhone.Resources;
+using System.Windows.Media;
 
 namespace Discuz.WinPhone {
 
@@ -15,6 +16,8 @@ namespace Discuz.WinPhone {
         public App() {
             this.InitializeComponent();
             this.UnhandledException += App_UnhandledException;
+            ThemeManager.ToLightTheme();
+            //ThemeManager.SetBackground(new SolidColorBrush(Color.FromArgb(255, 239, 239, 239)));
         }
 
         void App_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e) {

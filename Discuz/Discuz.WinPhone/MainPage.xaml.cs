@@ -31,7 +31,7 @@ namespace Discuz.WinPhone {
             //菜单栏最小化
             this.ApplicationBar.Opacity = 0.75;
             this.ApplicationBar.Mode = ApplicationBarMode.Minimized;
-            this.ApplicationBar.BackgroundColor = Color.FromArgb(255, 27, 117, 146);//FF1B7592
+            //this.ApplicationBar.BackgroundColor = Color.FromArgb(255, 27, 117, 146);//FF1B7592
             this.DataContext = this;
         }
 
@@ -52,6 +52,7 @@ namespace Discuz.WinPhone {
             this.SetMainPage();
 
             var mp = (Xamarin.Forms.NavigationPage)application.MainPage;
+            mp.BackgroundColor = Xamarin.Forms.Color.FromHex("EFEFEF");
             mp.PropertyChanged += MainPage_PropertyChanged;
             this.Title = mp.Title;
         }

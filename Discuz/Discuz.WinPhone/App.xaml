@@ -25,13 +25,13 @@
                     <DataTemplate x:Key="TabbedPageHeader1">
                         <StackPanel>
                             <TextBlock Text="{Binding Title}" FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
-                            <Path Data="M50,0 L0,50 L100,50" Fill="#1e5263" Height="5"  Stretch="Fill" StrokeThickness="0" UseLayoutRounding="False"  Width="20">
+                            <Path Data="M50,0 L0,50 L100,50" Fill="#efefef" Height="5"  Stretch="Fill" StrokeThickness="0" UseLayoutRounding="False"  Width="20">
                                 <i:Interaction.Triggers>
                                     <ec:DataTrigger Binding="{Binding IsEnabled}" Value="False">
                                         <ec:ChangePropertyAction PropertyName="Fill" Value="Transparent" />
                                     </ec:DataTrigger>
                                     <ec:DataTrigger Binding="{Binding IsEnabled}" Value="True">
-                                        <ec:ChangePropertyAction PropertyName="Fill" Value="#1e5263" />
+                                        <ec:ChangePropertyAction PropertyName="Fill" Value="#efefef" />
                                     </ec:DataTrigger>
                                 </i:Interaction.Triggers>
                             </Path>

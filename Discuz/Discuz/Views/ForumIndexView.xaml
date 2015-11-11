@@ -40,7 +40,7 @@
               <!--<ctrls:Border Style="{StaticResource BlockBorder}">
                 <ContentView cal:View.Model="{Binding }" />
               </ctrls:Border>-->
-              <Frame>
+              <Frame OutlineColor="#cccccc" BackgroundColor="#ffffff">
                 <ContentView cal:View.Model="{Binding }" />
               </Frame>
             </StackLayout>
