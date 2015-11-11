@@ -14,6 +14,5 @@ using Xamarin.Forms.Platform.Android;
 namespace Discuz.Droid.Renders {
     public class TabbedRender : TabbedRenderer {
 
-
     }
 }

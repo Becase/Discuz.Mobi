@@ -18,22 +18,22 @@
       
       <Style x:Key="TitleLabel" TargetType="Label">
         <Setter Property="FontSize" Value="20" />
-        <Setter Property="TextColor" Value="#eeeeee" />
+        <Setter Property="TextColor" Value="#333333" />
       </Style>
 
       <Style x:Key="TitleLabel2" TargetType="Label">
         <Setter Property="FontSize" Value="18" />
-        <Setter Property="TextColor" Value="#999999" />
+        <Setter Property="TextColor" Value="#333333" />
       </Style>
 
       <Style x:Key="DescLabel" TargetType="Label">
         <Setter Property="FontSize" Value="15" />
-        <Setter Property="TextColor" Value="#cccccc" />
+        <Setter Property="TextColor" Value="#666666" />
       </Style>
 
       <Style x:Key="DetailLabel" TargetType="Label">
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="TextColor" Value="#bbbbbb" />
+        <Setter Property="TextColor" Value="#999999" />
       </Style>
 
       <Style x:Key="BlockBorder" TargetType="{x:Type ctrls:Border}">
@@ -49,7 +49,7 @@
         <Setter Property="StrokeThickness" Value="0.5" />
         <Setter Property="Stroke" Value="#ffffff" />
         <Setter Property="Padding" Value="10,1,10,4" />
-        <Setter Property="BackgroundColor" Value="#1e5263" />
+        <Setter Property="BackgroundColor" Value="#efefef" />
       </Style>      
       
     </ResourceDictionary>
